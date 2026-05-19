@@ -13,6 +13,7 @@ using CutTwice.UI;
 using CutTwice.UI.Game.GameOver;
 using CutTwice.UI.Game.GameOver.MenuExitButton;
 using CutTwice.UI.Game.GameOver.RestartButton;
+using CutTwice.UI.SleepBar;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -61,7 +62,8 @@ namespace CutTwice.Game
             
             // UI
             var timePanelController = lifecycleManager.Register(new TimePanelController(_gameSceneReferences.GameHUDView.TimePanelView, gameSession));
-            var gameHud = lifecycleManager.Register(new GameHUDWindow(_gameSceneReferences.GameHUDView.gameObject, timePanelController));
+            var sleepBarController = lifecycleManager.Register(new SleepBarController(_gameSceneReferences.GameHUDView.SleepBarView, playerSleepController));
+            var gameHud = lifecycleManager.Register(new GameHUDWindow(_gameSceneReferences.GameHUDView.gameObject, timePanelController, sleepBarController));
 
             var exitMenuButtonController = lifecycleManager.Register(new MenuExitButtonController(_gameSceneReferences.GameOverView.ExitMenuButtonView));
             var restartButtonController = lifecycleManager.Register(new RestartButtonController(_gameSceneReferences.GameOverView.RestartButtonView));

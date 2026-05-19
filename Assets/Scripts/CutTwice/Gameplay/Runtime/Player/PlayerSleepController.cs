@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CutTwice.Controllers
 {
-    internal class PlayerSleepController : ITickable
+    public class PlayerSleepController : ITickable
     {
         public float SleepLevel;
         

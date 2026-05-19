@@ -2,7 +2,7 @@
   "ChunkType": "Easy",
   "Chunks" : [
     {
-      "Id" : "DoubleDeerDoubleTraffic",
+      "Id" : "EasyDoubleDeerDoubleTraffic",
       "Actions": [
         { "Type": "SpawnDeer",
           "Parameters": {
@@ -24,6 +24,184 @@
             "Position": "Line2XOnly"
           } },
         { "Type": "Delay", "Parameters": { "Value": 1.8 } },
+        { "Type": "SpawnTraffic",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Traffic",
+            "Position": "Line4"
+          } }
+      ]
+    },
+    {
+      "Id" : "EasyDeerSequenceOrderedLeft",
+      "Actions": [
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line1XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1 } },
+        
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line2XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1 } },
+        
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line3XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1 } },
+        
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line4XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1 } }
+      ]
+    },
+    {
+      "Id" : "EasyDeerSequenceOrderedRight",
+      "Actions": [
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line4XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1 } },
+
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line3XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1 } },
+
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line2XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1 } },
+
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line1XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1 } }
+      ]
+    },
+    {
+      "Id" : "EasyDeerSequenceCheckers1",
+      "Actions": [
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line1XOnly"
+          } },
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line3XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1 } },
+
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line2XOnly"
+          } },
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line4XOnly"
+          } }
+      ]
+    },
+    {
+      "Id" : "EasyDeerSequenceCheckers2",
+      "Actions": [
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line2XOnly"
+          } },
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line4XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1 } },
+
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line1XOnly"
+          } },
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line3XOnly"
+          } }
+      ]
+    },
+    {
+      "Id" : "EasySequenceSnake",
+      "Actions": [
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line1XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1.8 } },
+        { "Type": "SpawnTraffic",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Traffic",
+            "Position": "Line3"
+          } },
+        { "Type": "SpawnTraffic",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Traffic",
+            "Position": "Line4"
+          } },
+        
+        { "Type": "Delay", "Parameters": { "Value": 1 } },
+
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line1XOnly"
+          } },
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line2XOnly"
+          } },
+        
+        { "Type": "Delay", "Parameters": { "Value": 1.8 } },
+        { "Type": "SpawnTraffic",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Traffic",
+            "Position": "Line3"
+          } },
+
+        { "Type": "Delay", "Parameters": { "Value": 1 } },
+        
+        { "Type": "SpawnDeer",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Deer",
+            "Position": "Line2XOnly"
+          } },
+        { "Type": "Delay", "Parameters": { "Value": 1.8 } },
+        { "Type": "SpawnTraffic",
+          "Parameters": {
+            "PrefabKey": "Obstacles/Traffic",
+            "Position": "Line3"
+          } },
         { "Type": "SpawnTraffic",
           "Parameters": {
             "PrefabKey": "Obstacles/Traffic",

@@ -2,6 +2,11 @@
   "Name": "DefaultSequenceModule",
   "Difficulty": 0,
   "Sequences": [
-    { "Id": "DoubleDeerDoubleTraffic" }
+    { "Id": "EasyDoubleDeerDoubleTraffic" },
+    { "Id": "EasyDeerSequenceOrderedLeft" },
+    { "Id": "EasyDeerSequenceOrderedRight" },
+    { "Id": "EasyDeerSequenceCheckers1" },
+    { "Id": "EasyDeerSequenceCheckers2" },
+    { "Id": "EasySequenceSnake" }
   ]
 }

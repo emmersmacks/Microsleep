@@ -1,11 +1,11 @@
 ﻿using System.Threading;
 using CutTwice.Core.GameStates;
 using CutTwice.Core.Initialization;
-using CutTwice.Infrastructure.Scenes.Menu.States;
+using CutTwice.Menu.GlobalStates;
 using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
-namespace CutTwice.Infrastructure.Scenes.App
+namespace CutTwice.App
 {
     public class AppBootstrap : Bootstrap
     {

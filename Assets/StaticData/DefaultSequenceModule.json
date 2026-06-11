@@ -7,6 +7,8 @@
     { "Id": "EasyDeerSequenceOrderedRight" },
     { "Id": "EasyDeerSequenceCheckers1" },
     { "Id": "EasyDeerSequenceCheckers2" },
+    { "Id": "EasyLeftMirror" },
+    { "Id": "EasyTopMirror" },
     { "Id": "EasySequenceSnake" }
   ]
 }

@@ -4,23 +4,27 @@ using CutTwice.Core.Initialization;
 using CutTwice.Core.Lifecycle;
 using CutTwice.Core.RivletUI;
 using CutTwice.Gameplay.Factories;
-using CutTwice.Gameplay.Runtime.Obstacles.ObstacleSequence;
-using CutTwice.Gameplay.Runtime.Obstacles.ObstacleSequence.ModuleLoader;
-using CutTwice.Gameplay.Runtime.Obstacles.ObstacleSequence.Services;
-using CutTwice.Gameplay.Runtime.Player;
-using CutTwice.Gameplay.Runtime.Road;
+using CutTwice.Gameplay.GameStates;
+using CutTwice.Gameplay.Initializers;
+using CutTwice.Gameplay.Runtime.Chunks;
+using CutTwice.Gameplay.Runtime.Chunks.ModuleLoader;
+using CutTwice.Gameplay.Runtime.Chunks.Services;
+using CutTwice.Gameplay.Runtime.Hazards.Components;
+using CutTwice.Gameplay.Runtime.Interactables.Components;
+using CutTwice.Gameplay.Runtime.Player.Components;
+using CutTwice.Gameplay.Runtime.Road.Components;
 using CutTwice.Gameplay.Runtime.Scenario;
 using CutTwice.Gameplay.Runtime.Scenario.Stages;
-using CutTwice.Infrastructure.Scenes.Game.Initializers;
-using CutTwice.Infrastructure.Scenes.Game.States;
+using CutTwice.Gameplay.Runtime.Sound.Components;
 using CutTwice.UI.Game.GameHUD;
 using CutTwice.UI.Game.GameHUD.SleepBar;
 using CutTwice.UI.Game.GameHUD.TimePanel;
 using CutTwice.UI.Game.GameOver;
 using CutTwice.UI.Game.GameOver.MenuExitButton;
 using CutTwice.UI.Game.GameOver.RestartButton;
+using UnityEngine;
 
-namespace CutTwice.Infrastructure.Scenes.Game
+namespace CutTwice.Gameplay
 {
     public class GameCompositionRoot : CompositionRoot
     {
@@ -37,11 +41,11 @@ namespace CutTwice.Infrastructure.Scenes.Game
             var eventBus = lifecycleManager.Register(new Core.EventBus.EventBus());
 
             // Player
-            var playerCarPresenter = _gameSceneReferences.Player.GetComponent<PlayerCarPresenter>();
-            var playerCarController = lifecycleManager.Register(new PlayerCarController(playerCarPresenter));
-
-            var playerInputController = lifecycleManager.Register(new PlayerInputController(playerCarController));
+            var playerInputController = lifecycleManager.Register(new PlayerInputController(Camera.main));
             
+            var playerCarPresenter = _gameSceneReferences.Player.GetComponent<PlayerCarPresenter>();
+            var playerCarController = lifecycleManager.Register(new PlayerCarController(playerCarPresenter, playerInputController));
+
             var playerSleepPresenter = _gameSceneReferences.Player.GetComponent<PlayerSleepPresenter>();
             var playerSleepController = lifecycleManager.Register(new PlayerSleepController(playerSleepPresenter));
             
@@ -54,13 +58,36 @@ namespace CutTwice.Infrastructure.Scenes.Game
             var scenarioManager = lifecycleManager.Register(new ScenarioManager(0, playerInputController, new ScenarioStage[] { initialStage, openEyeStage }));
             var infiniteRoadController = lifecycleManager.Register(new InfiniteRoadController(_gameSceneReferences.InfiniteRoadPresenter));
             
+            // Runtime
+            var rotateBackviewMirrorController = lifecycleManager.Register(new RotateMirrorController(_gameSceneReferences.RotateBackviewMirrorPresenter, playerInputController));
+            lifecycleManager.Register(_gameSceneReferences.BackviewReflectionObjectPresenter);
+            var backviewReflectionObjectController = lifecycleManager.Register(new ReflectionObjectController(_gameSceneReferences.BackviewReflectionObjectPresenter, rotateBackviewMirrorController));
+            
+            var backviewHazardPresenter = lifecycleManager.Register(_gameSceneReferences.BackviewMirrorHazardPresenter);
+            var backviewMirrorHazardController = lifecycleManager.Register(new BackviewMirrorHazardController(backviewHazardPresenter, backviewReflectionObjectController, rotateBackviewMirrorController, eventBus));
+            
+            var rotateSideviewMirrorController = lifecycleManager.Register(new RotateMirrorController(_gameSceneReferences.RotateSideviewMirrorPresenter, playerInputController));
+            lifecycleManager.Register(_gameSceneReferences.SideviewReflectionObjectPresenter);
+            var sideviewReflectionObjectController = lifecycleManager.Register(new ReflectionObjectController(_gameSceneReferences.SideviewReflectionObjectPresenter, rotateSideviewMirrorController));
+            
+            var sideviewMirrorHazardController = lifecycleManager.Register(new SideviewMirrorHazardController(_gameSceneReferences.SideviewMirrorHazardPresenter, sideviewReflectionObjectController, rotateSideviewMirrorController, eventBus));
+
+            var leftsideSoundLoopPresenter = lifecycleManager.Register(_gameSceneReferences.LeftSideHazardLoopSoundPresenter);
+            lifecycleManager.Register(new MusicLoopController(leftsideSoundLoopPresenter));
+            
             // Obstacles
             var trafficFactory = lifecycleManager.Register(new TrafficFactory(eventBus));
             var deerFactory = lifecycleManager.Register(new DeerFactory(eventBus));
             
             var addressablesModuleLoader = lifecycleManager.Register(new AddressablesModuleLoader());
             var obstacleSequenceService = lifecycleManager.Register(new ObstacleSequenceService(addressablesModuleLoader));
-            var obstacleSequenceBuilder = lifecycleManager.Register(new ObstacleSequenceBuilder(obstacleSequenceService, infiniteRoadController, trafficFactory, deerFactory, lifecycleManager));
+            var obstacleSequenceBuilder = lifecycleManager.Register(new ObstacleSequenceBuilder(obstacleSequenceService,
+                infiniteRoadController,
+                trafficFactory,
+                deerFactory,
+                lifecycleManager, 
+                backviewMirrorHazardController,
+                sideviewMirrorHazardController));
             var obstacleRuntimeController = lifecycleManager.Register(new ObstacleRuntimeController());
             
             // Game

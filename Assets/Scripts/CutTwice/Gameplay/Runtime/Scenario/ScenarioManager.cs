@@ -2,6 +2,7 @@
 using System.Threading;
 using CutTwice.Core.Lifecycle;
 using CutTwice.Gameplay.Runtime.Player;
+using CutTwice.Gameplay.Runtime.Player.Components;
 using Cysharp.Threading.Tasks;
 
 namespace CutTwice.Gameplay.Runtime.Scenario

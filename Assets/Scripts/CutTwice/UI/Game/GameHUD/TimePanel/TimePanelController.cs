@@ -1,7 +1,7 @@
 ﻿using System;
 using CutTwice.Core.Lifecycle;
 using CutTwice.Core.RivletUI;
-using CutTwice.Infrastructure.Scenes.Game;
+using CutTwice.Gameplay;
 
 namespace CutTwice.UI.Game.GameHUD.TimePanel
 {

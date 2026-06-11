@@ -1,5 +1,5 @@
 ﻿using System;
-using CutTwice.Infrastructure.Scenes.Game;
+using CutTwice.Gameplay;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;

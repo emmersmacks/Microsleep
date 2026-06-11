@@ -2,10 +2,9 @@
 using CutTwice.Core.GameStates;
 using CutTwice.Core.StaticNames;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace CutTwice.Infrastructure.Scenes.Game.GlobalStates
+namespace CutTwice.Gameplay.GlobalStates
 {
     public class GameState : IGlobalState
     {

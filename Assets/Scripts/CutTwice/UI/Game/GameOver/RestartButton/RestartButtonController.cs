@@ -2,7 +2,7 @@
 using CutTwice.Core.GameStates;
 using CutTwice.Core.Lifecycle;
 using CutTwice.Core.RivletUI;
-using CutTwice.Infrastructure.Scenes.Game.GlobalStates;
+using CutTwice.Gameplay.GlobalStates;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 

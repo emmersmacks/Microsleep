@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace CutTwice.Infrastructure.Scenes.Game
+namespace CutTwice.Gameplay
 {
     // TODO: Refactor This
     public static class PlayerData

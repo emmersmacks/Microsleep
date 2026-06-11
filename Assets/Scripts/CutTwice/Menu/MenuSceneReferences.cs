@@ -4,7 +4,7 @@ using CutTwice.UI.MainMenu.Leaderboard;
 using CutTwice.UI.MainMenu.Menu;
 using CutTwice.UI.MainMenu.Shop;
 
-namespace CutTwice.Infrastructure.Scenes.Menu
+namespace CutTwice.Menu
 {
     [Serializable]
     public class MenuSceneReferences

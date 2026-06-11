@@ -1,11 +1,6 @@
-﻿using System.Threading;
-using CutTwice.Core.EventBus;
-using CutTwice.Core.Initialization;
-using CutTwice.Core.RivletUI;
-using CutTwice.UI.MainMenu.Menu;
-using Cysharp.Threading.Tasks;
+﻿using CutTwice.Core.Initialization;
 
-namespace CutTwice.Infrastructure.Scenes.Menu
+namespace CutTwice.Menu
 {
     public class MenuBootstrap : Bootstrap
     {

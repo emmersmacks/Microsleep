@@ -18,8 +18,8 @@ namespace CutTwice.Core.EventBus
     /// </summary>
     public class EventBus : IEventBus
     {
-        private readonly Dictionary<Type, List<Delegate>> _subscribers = new Dictionary<Type, List<Delegate>>();
-        private readonly object _lock = new object();
+        private readonly Dictionary<Type, List<Delegate>> _subscribers = new();
+        private readonly object _lock = new();
 
         public void Subscribe<T>(Action<T> handler)
         {

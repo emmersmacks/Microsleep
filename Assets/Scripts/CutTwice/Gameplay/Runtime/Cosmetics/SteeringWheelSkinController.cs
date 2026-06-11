@@ -1,5 +1,4 @@
-﻿using CutTwice.Infrastructure.Scenes.Game;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CutTwice.Gameplay.Runtime.Cosmetics
 {

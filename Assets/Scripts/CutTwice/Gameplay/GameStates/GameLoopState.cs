@@ -2,7 +2,7 @@
 using CutTwice.Core.GameStates;
 using Cysharp.Threading.Tasks;
 
-namespace CutTwice.Infrastructure.Scenes.Game.States
+namespace CutTwice.Gameplay.GameStates
 {
     public class GameLoopState : IGameState
     {

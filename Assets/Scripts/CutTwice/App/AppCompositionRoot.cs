@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
+using CutTwice.App.GlobalStates;
 using CutTwice.Core.GameStates;
 using CutTwice.Core.Initialization;
 using CutTwice.Core.Lifecycle;
 using CutTwice.Core.RivletUI;
-using CutTwice.Infrastructure.Scenes.App.States;
-using CutTwice.Infrastructure.Scenes.Game;
-using CutTwice.Infrastructure.Scenes.Game.GlobalStates;
-using CutTwice.Infrastructure.Scenes.Game.States;
-using CutTwice.Infrastructure.Scenes.Menu.States;
-using CutTwice.Infrastructure.Services;
+using CutTwice.Gameplay;
+using CutTwice.Gameplay.GlobalStates;
+using CutTwice.Menu.GlobalStates;
+using CutTwice.Services;
 
-namespace CutTwice.Infrastructure.Scenes.App
+namespace CutTwice.App
 {
     public class AppCompositionRoot : CompositionRoot
     {

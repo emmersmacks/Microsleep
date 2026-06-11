@@ -1,9 +1,9 @@
 ﻿using System.Threading;
-using CutTwice.Infrastructure.Scenes.Game;
+using CutTwice.Gameplay;
 using Cysharp.Threading.Tasks;
 using YG;
 
-namespace CutTwice.Infrastructure.Services
+namespace CutTwice.Services
 {
     public class PurchaseService : IService
     {

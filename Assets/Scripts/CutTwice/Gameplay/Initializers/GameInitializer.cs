@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using CutTwice.Core.GameStates;
 using CutTwice.Core.Lifecycle;
-using CutTwice.Infrastructure.Scenes.Game.States;
+using CutTwice.Gameplay.GameStates;
 using Cysharp.Threading.Tasks;
 
-namespace CutTwice.Infrastructure.Scenes.Game.Initializers
+namespace CutTwice.Gameplay.Initializers
 {
     public class GameInitializer : IInitializable
     {

@@ -3,7 +3,7 @@ using CutTwice.Core.GameStates;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CutTwice.Infrastructure.Scenes.Game.States
+namespace CutTwice.Gameplay.GameStates
 {
     public class PauseGameState : IGameState
     {

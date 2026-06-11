@@ -1,6 +1,7 @@
 ﻿using CutTwice.Core.Lifecycle;
 using CutTwice.Core.RivletUI;
 using CutTwice.Gameplay.Runtime.Player;
+using CutTwice.Gameplay.Runtime.Player.Components;
 
 namespace CutTwice.UI.Game.GameHUD.SleepBar
 {

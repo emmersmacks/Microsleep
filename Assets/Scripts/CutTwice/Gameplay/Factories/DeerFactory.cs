@@ -7,6 +7,11 @@ using UnityEngine;
 
 namespace CutTwice.Gameplay.Factories
 {
+    public class DeerContext : Context
+    {
+        public RaycastStripController RaycastStripController;
+    }
+    
     public class DeerFactory : GameObjectFactory
     {
         protected override string PrefabKey => "Obstacles/Deer";

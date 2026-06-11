@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CutTwice.Infrastructure.Scenes.App.States;
+using CutTwice.App.GlobalStates;
 
 namespace CutTwice.Core.GameStates
 {

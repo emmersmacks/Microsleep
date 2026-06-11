@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace CutTwice.Infrastructure.Services
+namespace CutTwice.Services
 {
     public interface IService
     {

@@ -5,7 +5,7 @@ using CutTwice.Core.RivletUI;
 using CutTwice.UI.MainMenu.Menu;
 using Cysharp.Threading.Tasks;
 
-namespace CutTwice.Infrastructure.Scenes.Menu.Initializers
+namespace CutTwice.Menu.Initializers
 {
     public class MenuInitializer : IInitializable
     {

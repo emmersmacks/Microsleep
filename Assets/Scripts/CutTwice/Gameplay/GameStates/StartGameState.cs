@@ -2,14 +2,11 @@
 using CutTwice.Core.EventBus;
 using CutTwice.Core.GameStates;
 using CutTwice.Core.RivletUI;
-using CutTwice.Core.StaticNames;
-using CutTwice.Infrastructure.Scenes.Game.GlobalStates;
 using CutTwice.UI.Game.GameHUD;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace CutTwice.Infrastructure.Scenes.Game.States
+namespace CutTwice.Gameplay.GameStates
 {
     public class StartGameState : IGameState
     {

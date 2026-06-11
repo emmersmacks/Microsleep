@@ -4,7 +4,7 @@ using CutTwice.Core.StaticNames;
 using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
-namespace CutTwice.Infrastructure.Scenes.Menu.States
+namespace CutTwice.Menu.GlobalStates
 {
     public class MainMenuState : IGlobalState
     {

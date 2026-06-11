@@ -2,7 +2,7 @@
 using CutTwice.Core.GameStates;
 using Cysharp.Threading.Tasks;
 
-namespace CutTwice.Infrastructure.Scenes.App.States
+namespace CutTwice.App.GlobalStates
 {
     public class BootstrapState : IGlobalState
 

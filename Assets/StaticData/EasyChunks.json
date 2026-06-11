@@ -208,6 +208,26 @@
             "Position": "Line4"
           } }
       ]
+    },
+    {
+      "Id" : "EasyLeftMirror",
+      "Actions": [
+        { "Type": "Delay", "Parameters": { "Value": 1.8 } },
+        
+        { "Type": "SideviewObject" },
+
+        { "Type": "Delay", "Parameters": { "Value": 5 } }
+      ]
+    },
+    {
+      "Id" : "EasyTopMirror",
+      "Actions": [
+        { "Type": "Delay", "Parameters": { "Value": 1.8 } },
+        
+        { "Type": "BackviewObject" },
+
+        { "Type": "Delay", "Parameters": { "Value": 5 } }
+      ]
     }
   ]
 }

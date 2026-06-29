@@ -63,7 +63,7 @@ namespace CutTwice.Gameplay
             {
                 do
                 {
-                    await _runtime.Run(sequence, randomize, ct);
+                    await _runtime.RunAsync(sequence, randomize, ct);
                 } while (isLoop && _gameStarted && !ct.IsCancellationRequested);
             }
             catch (OperationCanceledException e)

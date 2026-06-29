@@ -6,7 +6,7 @@ namespace CutTwice.Gameplay.GameStates
 {
     public class GameLoopState : IGameState
     {
-        public UniTask Enter(IStateMachine stateMachine, CancellationToken ct)
+        public UniTask EnterAsync(IStateMachine stateMachine, CancellationToken ct)
         {
             return UniTask.CompletedTask;
         }

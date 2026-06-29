@@ -8,7 +8,7 @@ namespace CutTwice.Menu.GlobalStates
 {
     public class MainMenuState : IGlobalState
     {
-        public UniTask Enter(IStateMachine stateMachine, CancellationToken ct)
+        public UniTask EnterAsync(IStateMachine stateMachine, CancellationToken ct)
         {
             SceneManager.LoadScene(SceneNames.MainMenu);
             return UniTask.CompletedTask;

@@ -24,7 +24,7 @@ namespace CutTwice.Core.Lifecycle
             }
         }
         
-        public async UniTask RuntimeRegister(object obj, CancellationToken ct)
+        public async UniTask RuntimeRegisterAsync(object obj, CancellationToken ct)
         {
             Register(obj);
             if (obj is IInitializable initializable)
@@ -41,11 +41,11 @@ namespace CutTwice.Core.Lifecycle
             }
         }
         
-        public async UniTask RuntimeRegister(List<ILifecycleObject> lifecycleObjects, CancellationToken ct)
+        public async UniTask RuntimeRegisterAsync(List<ILifecycleObject> lifecycleObjects, CancellationToken ct)
         {
             foreach (var lifecycleObject in lifecycleObjects)
             {
-                await RuntimeRegister(lifecycleObject, ct);
+                await RuntimeRegisterAsync(lifecycleObject, ct);
             }
         }
 

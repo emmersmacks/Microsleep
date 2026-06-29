@@ -72,7 +72,7 @@ namespace CutTwice.Gameplay.Runtime.Chunks.Actions
         {
             _segment = segment;
             _instance = await _gameObjectFactory.Create(new Vector3(_parameters.Position.X, _parameters.Position.Y, _parameters.Position.Z), _prefab.transform.rotation) as DeerContext;
-            await _lifecycleManager.RuntimeRegister(_instance.RaycastStripController, ct);
+            await _lifecycleManager.RuntimeRegisterAsync(_instance.RaycastStripController, ct);
             _instance.GameObject.transform.SetParent(_segment);
             
             _infiniteRoadController.OnSegmentSpawned.AddListener(DespawnObject);

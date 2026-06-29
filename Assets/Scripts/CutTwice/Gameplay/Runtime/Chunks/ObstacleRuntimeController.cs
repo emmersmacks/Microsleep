@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using CutTwice.Core;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -10,7 +9,7 @@ namespace CutTwice.Gameplay.Runtime.Chunks
 {
     public class ObstacleRuntimeController
     {
-        public async UniTask Run(ObstacleSequenceModuleRuntime sequence, bool randomize, CancellationToken ct)
+        public async UniTask RunAsync(ObstacleSequenceModuleRuntime sequence, bool randomize, CancellationToken ct)
         {
             SequenceChunkRuntime[] chunksOrder = null;
             if (randomize)

@@ -47,8 +47,8 @@ namespace CutTwice.Gameplay.Runtime.Chunks.Actions
         {
             _trafficContext = await _gameObjectFactory.Create(_parameters.Position, _parameters.Rotation) as TrafficContext;
             
-            await _lifecycleManager.RuntimeRegister(_trafficContext.ObjectMoverController, ct);
-            await _lifecycleManager.RuntimeRegister(_trafficContext.RaycastStripController, ct);
+            await _lifecycleManager.RuntimeRegisterAsync(_trafficContext.ObjectMoverController, ct);
+            await _lifecycleManager.RuntimeRegisterAsync(_trafficContext.RaycastStripController, ct);
             
             _trafficContext.ObjectMoverController.OnFinished += DespawnObject;
         }

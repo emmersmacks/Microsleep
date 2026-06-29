@@ -17,7 +17,7 @@ namespace CutTwice.Gameplay.GameStates
             _eventBus = eventBus;
         }
 
-        public async UniTask Enter(IStateMachine stateMachine, CancellationToken ct)
+        public async UniTask EnterAsync(IStateMachine stateMachine, CancellationToken ct)
         {
             Time.timeScale = 1f;
 

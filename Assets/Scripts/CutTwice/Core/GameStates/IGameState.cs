@@ -5,7 +5,7 @@ namespace CutTwice.Core.GameStates
 {
     public interface IState
     {
-        UniTask Enter(IStateMachine stateMachine, CancellationToken ct);
+        UniTask EnterAsync(IStateMachine stateMachine, CancellationToken ct);
 
         void Exit();
     }

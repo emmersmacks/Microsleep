@@ -27,7 +27,7 @@ namespace CutTwice.Core.GameStates
 
             if (_currentState != null)
             {
-                await _currentState.Enter(this, ct);
+                await _currentState.EnterAsync(this, ct);
             }
         }
     }

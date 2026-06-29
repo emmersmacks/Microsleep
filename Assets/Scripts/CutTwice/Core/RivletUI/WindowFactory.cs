@@ -28,7 +28,7 @@ namespace CutTwice.Core.RivletUI
 
             var scope = childContainer.CreateScope();
             var lifecicleObjects = scope.Resolve<List<ILifecycleObject>>(false);
-            await lifecycleManager.RuntimeRegister(lifecicleObjects, ct);
+            await lifecycleManager.RuntimeRegisterAsync(lifecicleObjects, ct);
 
             var controllers = scope.Resolve(typeof(List<IWindowController>)) as List<IWindowController>;
             controllers ??= new List<IWindowController>();

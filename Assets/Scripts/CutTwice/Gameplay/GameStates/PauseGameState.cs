@@ -7,7 +7,7 @@ namespace CutTwice.Gameplay.GameStates
 {
     public class PauseGameState : IGameState
     {
-        public UniTask Enter(IStateMachine stateMachine, CancellationToken ct)
+        public UniTask EnterAsync(IStateMachine stateMachine, CancellationToken ct)
         {
             Time.timeScale = 0f;
             return UniTask.CompletedTask;

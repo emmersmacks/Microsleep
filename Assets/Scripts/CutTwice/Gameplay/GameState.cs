@@ -8,7 +8,7 @@ namespace CutTwice.Gameplay.GlobalStates
 {
     public class GameState : IGlobalState
     {
-        public UniTask Enter(IStateMachine stateMachine, CancellationToken ct)
+        public UniTask EnterAsync(IStateMachine stateMachine, CancellationToken ct)
         {
             SceneManager.LoadScene(SceneNames.Game);
             return UniTask.CompletedTask;

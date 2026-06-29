@@ -16,13 +16,13 @@ namespace CutTwice.Gameplay.GameStates
             _eventBus = eventBus;
         }
 
-        public async UniTask Enter(IStateMachine stateMachine, CancellationToken ct)
+        public async UniTask EnterAsync(IStateMachine stateMachine, CancellationToken ct)
         {
             _eventBus.Publish(new OpenWindowRequest<GameOverWindow>());
             // TODO: Move To Service
             //YG2.onGetLeaderboard += OnGetLeaderboard;
             //YG2.GetLeaderboard("time");
-            await PlayEndSoundAndTransition();
+            await PlayEndSoundAndTransitionAsync();
         }
         
         //private void OnGetLeaderboard(LBData data)
@@ -34,7 +34,7 @@ namespace CutTwice.Gameplay.GameStates
         //    }
         //}
 
-        private async UniTask PlayEndSoundAndTransition()
+        private async UniTask PlayEndSoundAndTransitionAsync()
         {
             // TODO: Move To Audio System
             //CrashEffect.Play();

@@ -11,6 +11,7 @@ using CutTwice.Menu.States;
 using CutTwice.UI.MainMenu.Credits;
 using CutTwice.UI.MainMenu.Leaderboard;
 using CutTwice.UI.MainMenu.MapCards;
+using CutTwice.UI.MainMenu.MapScreen;
 using CutTwice.UI.MainMenu.Menu;
 using CascadeDI.Container;
 using CutTwice.UI.MainMenu.SelectLevel;
@@ -50,6 +51,9 @@ namespace CutTwice.Menu
 
             builder.RegisterSingleton(typeof(MapCardSlotsView), SceneReferences.MapCardSlots);
             builder.RegisterSingletonWithLifetime<MapCardSlotsController>();
+
+            builder.RegisterSingleton(typeof(MapWindowView), SceneReferences.MapWindowView);
+            builder.RegisterSingletonWithLifetime<MapWindow>(new List<Type>{ typeof(IWindow) });
 
             builder.RegisterSingleton(typeof(LeaderboardWindowView), SceneReferences.LeaderboardWindow);
             builder.RegisterSingletonWithLifetime<LeaderboardWindow>(new List<Type>{ typeof(IWindow) });

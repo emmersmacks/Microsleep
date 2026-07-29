@@ -98,6 +98,21 @@ namespace CutTwice.Gameplay.Runtime.Map
             return RequireActiveState().AvailableExits.Count == 0;
         }
 
+        public IReadOnlyList<MapNode> GetQueuedRoute()
+        {
+            return _routeQueue.ToArray();
+        }
+
+        public void ClearRoute()
+        {
+            _routeQueue.Clear();
+        }
+
+        public MapRuntimeState GetRuntimeState()
+        {
+            return RequireActiveState();
+        }
+
         public void ResetProgress()
         {
             _runtimeState = null;

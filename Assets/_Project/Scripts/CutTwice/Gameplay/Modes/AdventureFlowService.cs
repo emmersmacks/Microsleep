@@ -31,6 +31,12 @@ namespace CutTwice.Gameplay.Modes
             }
 
             _mapProgressService.ActivateSelectedMap();
+
+            if (_mapProgressService.GetNextTargetLocation() == null)
+            {
+                return false;
+            }
+
             StartNextLeg(ct);
             return true;
         }

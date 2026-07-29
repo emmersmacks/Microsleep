@@ -38,7 +38,7 @@ namespace CutTwice.UI.Location.LocationButtons
         {
             if (!_adventureFlowService.TryStartAdventure(_cancellationToken))
             {
-                Debug.LogWarning("Adventure mode: no map selected.");
+                Debug.LogWarning("Adventure mode: no map or route selected.");
             }
         }
 

@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using System.Threading;
+using CutTwice.Core.EventBus;
 using CutTwice.Core.Lifecycle;
+using CutTwice.Core.RivletUI;
 using CutTwice.Gameplay.Runtime.Map;
+using CutTwice.UI.MainMenu.MapScreen;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -12,6 +15,7 @@ namespace CutTwice.UI.MainMenu.MapCards
         private readonly MapCardSlotsView _view;
         private readonly PlayerMapsService _playerMapsService;
         private readonly MapProgressService _mapProgressService;
+        private readonly IEventBus _eventBus;
         private readonly List<MapCardView> _spawnedCards = new();
 
         private MapCardView _selectedCard;
@@ -19,11 +23,13 @@ namespace CutTwice.UI.MainMenu.MapCards
         public MapCardSlotsController(
             MapCardSlotsView view,
             PlayerMapsService playerMapsService,
-            MapProgressService mapProgressService)
+            MapProgressService mapProgressService,
+            IEventBus eventBus)
         {
             _view = view;
             _playerMapsService = playerMapsService;
             _mapProgressService = mapProgressService;
+            _eventBus = eventBus;
         }
 
         public UniTask InitAsync(CancellationToken ct)
@@ -70,6 +76,8 @@ namespace CutTwice.UI.MainMenu.MapCards
 
             _selectedCard = card;
             _mapProgressService.SelectMap(map);
+            _mapProgressService.ActivateSelectedMap();
+            _eventBus.Publish(new PushWindowRequest<MapWindow>());
         }
     }
 }

@@ -6,6 +6,7 @@ namespace CutTwice.UI.MainMenu.Menu.StartGameButton
     public class MenuButtonsView : WindowViewBase
     {
         public Button StartButton;
+        public Button SelectMapButton;
         public Button ShopButton;
         public Button CreditsButton;
     }

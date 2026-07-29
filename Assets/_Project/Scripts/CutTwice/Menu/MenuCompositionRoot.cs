@@ -10,9 +10,11 @@ using CutTwice.Menu.Initializers;
 using CutTwice.Menu.States;
 using CutTwice.UI.MainMenu.Credits;
 using CutTwice.UI.MainMenu.Leaderboard;
+using CutTwice.UI.MainMenu.MapCards;
 using CutTwice.UI.MainMenu.Menu;
 using CascadeDI.Container;
 using CutTwice.UI.MainMenu.SelectLevel;
+using CutTwice.UI.MainMenu.Shop;
 
 namespace CutTwice.Menu
 {
@@ -43,6 +45,12 @@ namespace CutTwice.Menu
             builder.RegisterSingleton(typeof(SelectLevelWindowView), SceneReferences.SelectLevelWindowView);
             builder.RegisterSingletonWithLifetime<SelectLevelWindow>(new List<Type>{ typeof(IWindow) });
             
+            builder.RegisterSingleton(typeof(SelectMapWindowView), SceneReferences.SelectMapWindowView);
+            builder.RegisterSingletonWithLifetime<SelectMapWindow>(new List<Type>{ typeof(IWindow) });
+
+            builder.RegisterSingleton(typeof(MapCardSlotsView), SceneReferences.MapCardSlots);
+            builder.RegisterSingletonWithLifetime<MapCardSlotsController>();
+
             builder.RegisterSingleton(typeof(LeaderboardWindowView), SceneReferences.LeaderboardWindow);
             builder.RegisterSingletonWithLifetime<LeaderboardWindow>(new List<Type>{ typeof(IWindow) });
             
@@ -51,6 +59,7 @@ namespace CutTwice.Menu
 
             // Menu States
             builder.RegisterSingletonWithLifetime<MainMenuState>(new List<Type>{ typeof(IMenuState) });
+            builder.RegisterSingletonWithLifetime<SelectMapState>(new List<Type>{ typeof(IMenuState) });
             builder.RegisterSingletonWithLifetime<SelectLevelState>(new List<Type>{ typeof(IMenuState) });
             builder.RegisterSingletonWithLifetime<ShopState>(new List<Type>{ typeof(IMenuState) });
             builder.RegisterSingletonWithLifetime<MenuStateMachine>();

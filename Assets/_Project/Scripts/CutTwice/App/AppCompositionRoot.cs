@@ -47,13 +47,11 @@ namespace CutTwice.App
             // Game mode
             builder.RegisterSingleton<GameModeContext>(new GameModeContext());
 
+            // Player maps
+            builder.RegisterSingleton<PlayerMapsService>(new PlayerMapsService(SceneReferences.HardcodedAdventureMap));
+
             // Map progress
-            var mapProgressService = new MapProgressService();
-            if (SceneReferences.HardcodedAdventureMap != null)
-            {
-                mapProgressService.SelectMap(SceneReferences.HardcodedAdventureMap);
-            }
-            builder.RegisterSingleton<MapProgressService>(mapProgressService);
+            builder.RegisterSingletonWithLifetime<MapProgressService>();
             builder.RegisterSingleton<AdventureFlowService>();
 
             builder.RegisterSingletonWithLifetime<AppInitializer>();

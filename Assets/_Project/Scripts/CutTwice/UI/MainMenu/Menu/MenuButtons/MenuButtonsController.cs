@@ -21,6 +21,7 @@ namespace CutTwice.UI.MainMenu.Menu.StartGameButton
             _eventBus = eventBus;
             _menuStateMachine = menuStateMachine;
             View.StartButton.onClick.AddListener(StartGame);
+            View.SelectMapButton.onClick.AddListener(SelectMap);
             View.CreditsButton.onClick.AddListener(ShowCredits);
             View.ShopButton.onClick.AddListener(ShowShop);
         }
@@ -34,6 +35,11 @@ namespace CutTwice.UI.MainMenu.Menu.StartGameButton
         private void StartGame()
         {
             _menuStateMachine.TransitionToAsync<SelectLevelState>(_cancellationToken).Forget(Debug.LogException);
+        }
+        
+        private void SelectMap()
+        {
+            _menuStateMachine.TransitionToAsync<SelectMapState>(_cancellationToken).Forget(Debug.LogException);
         }
 
         private void ShowCredits()

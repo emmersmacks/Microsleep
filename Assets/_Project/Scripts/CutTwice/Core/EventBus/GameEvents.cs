@@ -15,6 +15,7 @@
         Main,
         SelectLevel,
         Building,
-        Shop
+        Shop,
+        SelectMap
     }
 }

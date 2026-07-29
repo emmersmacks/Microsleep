@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutTwice.Menu.MenuCompositionRoot
   SceneReferences:
+    SelectMapWindowView: {fileID: 1587233810}
     Location: {fileID: 1639354263}
     SelectLevelWindowView: {fileID: 2071932313}
     CreditsWindow: {fileID: 1870798404}
@@ -399,6 +400,9 @@ MonoBehaviour:
         Camera: {fileID: 1492334752}
       - CameraType: 3
         Camera: {fileID: 1495118383}
+      - CameraType: 4
+        Camera: {fileID: 122889643}
+    MapCardSlots: {fileID: 1984923769}
 --- !u!1 &52160216
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +467,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &122889643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5085914592912091951, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+  m_PrefabInstance: {fileID: 431215197682268824}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineVirtualCamera
 --- !u!1001 &221335431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -474,6 +489,10 @@ PrefabInstance:
     - target: {fileID: 298140094789232797, guid: dbf95c1981fd57847b00cbb7b6054fb5, type: 3}
       propertyPath: m_Name
       value: MainMenuScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 298140094789232797, guid: dbf95c1981fd57847b00cbb7b6054fb5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6128608890210576204, guid: dbf95c1981fd57847b00cbb7b6054fb5, type: 3}
       propertyPath: m_Pivot.x
@@ -525,15 +544,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6128608890210576204, guid: dbf95c1981fd57847b00cbb7b6054fb5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6128608890210576204, guid: dbf95c1981fd57847b00cbb7b6054fb5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6128608890210576204, guid: dbf95c1981fd57847b00cbb7b6054fb5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6128608890210576204, guid: dbf95c1981fd57847b00cbb7b6054fb5, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2986,6 +3005,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineVirtualCamera
+--- !u!114 &1587233810 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6962327532686682078, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+  m_PrefabInstance: {fileID: 431215197682268824}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4212ee1232a463e808ab9900992cdec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutTwice.UI.MainMenu.Shop.SelectMapWindowView
 --- !u!114 &1639354263 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 554391142632507164, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
@@ -3638,7 +3668,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799873604}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.10453068, y: 0.15403478, z: 0.025073508, w: 0.98220056}
+  m_LocalRotation: {x: -0.10453068, y: 0.15403478, z: 0.025073504, w: 0.98220056}
   m_LocalPosition: {x: -19.517681, y: 0.87, z: -3.9024582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3957,6 +3987,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutTwice.UI.MainMenu.Credits.CreditsWindowView
   BackButtonView: {fileID: 918243889}
+--- !u!114 &1984923769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7706420305507658587, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+  m_PrefabInstance: {fileID: 431215197682268824}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102336b01c70b9c4a8990d08435c8231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutTwice.UI.MainMenu.MapCards.MapCardSlotsView
 --- !u!1 &2069259353
 GameObject:
   m_ObjectHideFlags: 0
@@ -4273,6 +4314,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2188151627367577113, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188151627367577113, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188151627367577113, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188151627367577113, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1856.8594
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188151627367577113, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 110.0977
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188151627367577113, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 76.33159
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951899531320802073, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 139.9071
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951899531320802073, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 69.95398
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909949231990162393, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6381539318645302400, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4311,6 +4388,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6381539318645302400, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7217364420655731977, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7217364420655731977, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7217364420655731977, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7217364420655731977, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7217364420655731977, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7217364420655731977, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7664688197849417702, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}

@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b10fbcbc3d4e0eb65e4e762091bdcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutTwice.Gameplay.Runtime.Location.ShopCompositionRoot
+  Camera: {fileID: 1828135048973416935}
   ShopWindow: {fileID: 1605921539591903845}
 --- !u!1 &2220324497362152092
 GameObject:

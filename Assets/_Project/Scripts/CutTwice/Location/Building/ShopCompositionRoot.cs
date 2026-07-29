@@ -11,11 +11,11 @@ namespace CutTwice.Location.Building
     {
         public ShopWindowView ShopWindow;
         
-        public override void Compose(IContainer builder, RuntimeLifecycleManager lifecycleManager)
+        public override void Compose(IContainer container, RuntimeLifecycleManager lifecycleManager)
         {
             // UI
-            builder.RegisterSingleton(typeof(ShopWindowView), ShopWindow);
-            builder.RegisterSingletonWithLifetime<ShopWindow>(new List<Type>{ typeof(IWindow) });
+            container.RegisterSingleton(typeof(ShopWindowView), ShopWindow);
+            container.RegisterSingletonWithLifetime<ShopWindow>(new List<Type>{ typeof(IWindow) });
         }
     }
 }

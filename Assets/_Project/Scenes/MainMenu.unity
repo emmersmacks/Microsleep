@@ -397,7 +397,7 @@ MonoBehaviour:
         Camera: {fileID: 1510945914}
       - CameraType: 1
         Camera: {fileID: 1492334752}
-      - CameraType: 4
+      - CameraType: 3
         Camera: {fileID: 122889643}
     MapCardSlots: {fileID: 1984923769}
     MapWindowView: {fileID: 739174346}

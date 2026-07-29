@@ -14,8 +14,7 @@
     {
         Main,
         SelectLevel,
-        Building,
-        Shop,
+        Location,
         SelectMap
     }
 }

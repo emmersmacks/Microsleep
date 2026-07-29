@@ -35,6 +35,8 @@ namespace CutTwice.Core.Initialization
             }
             
             Container = appBootstrap.Container == null ? new Container() : appBootstrap.Container.CreateChild();
+            await CompositionRoot.PreCompose(Container, destroyCancellationToken);
+            
             var lifecycleManager = LifecycleManagerUtils.CreateLifecycleManager(gameObject.name);
 
             CompositionRoot.Compose(Container, lifecycleManager);

@@ -17,7 +17,7 @@ namespace CutTwice.Menu
         }
         
         public CinemachineBrain CinemachineBrain;
-        public CameraData[] Cameras;
+        public List<CameraData> Cameras;
         
         public CinemachineVirtualCamera GetCamera(MenuCameraType cameraType)
         {

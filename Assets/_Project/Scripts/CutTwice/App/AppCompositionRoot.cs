@@ -20,40 +20,40 @@ namespace CutTwice.App
     {
         public AppSceneReferences SceneReferences;
 
-        public override void Compose(IContainer builder, RuntimeLifecycleManager lifecycleManager)
+        public override void Compose(IContainer container, RuntimeLifecycleManager lifecycleManager)
         {
-            builder.RegisterSingleton<RuntimeLifecycleManager>(lifecycleManager);
+            container.RegisterSingleton<RuntimeLifecycleManager>(lifecycleManager);
             
             // UI
-            builder.RegisterSingleton(typeof(LoadingScreenView), SceneReferences.LoadingScreen);
-            builder.RegisterSingletonWithLifetime<LoadingScreenController>();
-            builder.RegisterSingleton(typeof(FadeView), SceneReferences.FadeView);
+            container.RegisterSingleton(typeof(LoadingScreenView), SceneReferences.LoadingScreen);
+            container.RegisterSingletonWithLifetime<LoadingScreenController>();
+            container.RegisterSingleton(typeof(FadeView), SceneReferences.FadeView);
 
             // Services
-            builder.RegisterSingletonWithLifetime<PurchaseService>();
-            builder.RegisterSingletonWithLifetime<AudioSnapshotService>();
-            builder.RegisterSingletonWithLifetime<FadeService>(new List<Type>{ typeof(IFadeService) });
+            container.RegisterSingletonWithLifetime<PurchaseService>();
+            container.RegisterSingletonWithLifetime<AudioSnapshotService>();
+            container.RegisterSingletonWithLifetime<FadeService>(new List<Type>{ typeof(IFadeService) });
 
             // AppStateMachine
-            builder.RegisterSingleton<IGlobalState, GlobalBootstrapState>();
-            builder.RegisterSingleton<IGlobalState, GlobalMainMenuState>();
-            builder.RegisterSingleton<IGlobalState, GlobalGameState>();
-            builder.RegisterSingleton<GlobalStateMachine>();
+            container.RegisterSingleton<IGlobalState, GlobalBootstrapState>();
+            container.RegisterSingleton<IGlobalState, GlobalMainMenuState>();
+            container.RegisterSingleton<IGlobalState, GlobalGameState>();
+            container.RegisterSingleton<GlobalStateMachine>();
 
             // Player data
             PlayerData.Load();
 
             // Game mode
-            builder.RegisterSingleton<GameModeContext>(new GameModeContext());
+            container.RegisterSingleton<GameModeContext>(new GameModeContext());
 
             // Player maps
-            builder.RegisterSingleton<PlayerMapsService>(new PlayerMapsService(SceneReferences.HardcodedAdventureMap));
+            container.RegisterSingleton<PlayerMapsService>(new PlayerMapsService(SceneReferences.HardcodedAdventureMap));
 
             // Map progress
-            builder.RegisterSingletonWithLifetime<MapProgressService>();
-            builder.RegisterSingleton<AdventureFlowService>();
+            container.RegisterSingletonWithLifetime<MapProgressService>();
+            container.RegisterSingleton<AdventureFlowService>();
 
-            builder.RegisterSingletonWithLifetime<AppInitializer>();
+            container.RegisterSingletonWithLifetime<AppInitializer>();
         }
     }
 }

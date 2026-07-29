@@ -49,7 +49,7 @@ namespace CutTwice.UI.MainMenu.Menu.StartGameButton
 
         private void ShowShop()
         {
-            _menuStateMachine.TransitionToAsync<ShopState>(_cancellationToken).Forget(Debug.LogException);
+            _menuStateMachine.TransitionToAsync<LocationState>(_cancellationToken).Forget(Debug.LogException);
         }
     }
 }

@@ -9,13 +9,13 @@ using Cysharp.Threading.Tasks;
 
 namespace CutTwice.Menu.States
 {
-    public class ShopState : IMenuState
+    public class LocationState : IMenuState
     {
         private readonly IEventBus _eventBus;
         private readonly IFadeService _fadeService;
         private readonly MenuCameraSwitcher _cameraSwitcher;
 
-        public ShopState(IEventBus eventBus, IFadeService fadeService, MenuCameraSwitcher cameraSwitcher)
+        public LocationState(IEventBus eventBus, IFadeService fadeService, MenuCameraSwitcher cameraSwitcher)
         {
             _eventBus = eventBus;
             _fadeService = fadeService;
@@ -24,7 +24,7 @@ namespace CutTwice.Menu.States
 
         public async UniTask EnterAsync(IStateMachine stateMachine, CancellationToken ct)
         {
-            _cameraSwitcher.SwitchTo(MenuCameraType.Shop);
+            _cameraSwitcher.SwitchTo(MenuCameraType.Location);
             await _fadeService.FadeOutAsync(ct);
             await UniTask.Delay(200, cancellationToken: ct);
             _cameraSwitcher.CutBlend();

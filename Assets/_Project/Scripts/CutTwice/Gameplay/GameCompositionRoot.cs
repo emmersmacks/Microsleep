@@ -30,15 +30,15 @@ namespace CutTwice.Gameplay
     {
         public GameSceneReferences GameSceneReferences;
 
-        public override void Compose(IContainer builder, RuntimeLifecycleManager lifecycleManager)
+        public override void Compose(IContainer container, RuntimeLifecycleManager lifecycleManager)
         {
-            builder.RegisterSingleton<RuntimeLifecycleManager>(lifecycleManager);
+            container.RegisterSingleton<RuntimeLifecycleManager>(lifecycleManager);
 
-            ComposeGameplayModule(builder, lifecycleManager);
-            ComposeUIModule(builder);
+            ComposeGameplayModule(container, lifecycleManager);
+            ComposeUIModule(container);
             
             // Initialization
-            builder.RegisterSingletonWithLifetime<GameInitializer>();
+            container.RegisterSingletonWithLifetime<GameInitializer>();
         }
 
         private void ComposeGameplayModule(IContainer builder, RuntimeLifecycleManager lifecycleManager)

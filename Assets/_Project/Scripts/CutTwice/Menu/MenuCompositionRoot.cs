@@ -6,6 +6,7 @@ using CutTwice.Core.GameStates;
 using CutTwice.Core.Initialization;
 using CutTwice.Core.Lifecycle;
 using CutTwice.Core.RivletUI;
+using CutTwice.Location;
 using CutTwice.Menu.Initializers;
 using CutTwice.Menu.States;
 using CutTwice.UI.MainMenu.Credits;
@@ -32,9 +33,8 @@ namespace CutTwice.Menu
 
             builder.RegisterSingleton<CameraSwitchContext>(SceneReferences.CameraSwitchContext);
             builder.RegisterSingletonWithLifetime<MenuCameraSwitcher>();
-            
-            // Roots
-            SceneReferences.Location.Compose(builder, lifecycleManager);
+
+            builder.RegisterSingleton<LocationFactory>();
 
             // UI
             builder.RegisterSingleton(typeof(MenuWindowView), SceneReferences.MenuWindow);

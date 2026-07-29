@@ -49,7 +49,7 @@ namespace CutTwice.Gameplay.Modes
             }
 
             _mapProgressService.MarkLocationCompleted();
-            _globalStateMachine.SetStateAsync<GlobalLocationState>(ct).Forget(Debug.LogException);
+            _globalStateMachine.SetStateAsync<GlobalMainMenuState>(ct).Forget(Debug.LogException);
             return true;
         }
 

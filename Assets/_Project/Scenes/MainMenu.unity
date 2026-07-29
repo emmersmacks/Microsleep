@@ -386,7 +386,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CutTwice.Menu.MenuCompositionRoot
   SceneReferences:
     SelectMapWindowView: {fileID: 1587233810}
-    Location: {fileID: 1639354263}
     SelectLevelWindowView: {fileID: 2071932313}
     CreditsWindow: {fileID: 1870798404}
     LeaderboardWindow: {fileID: 8188676009002790294}
@@ -398,8 +397,6 @@ MonoBehaviour:
         Camera: {fileID: 1510945914}
       - CameraType: 1
         Camera: {fileID: 1492334752}
-      - CameraType: 3
-        Camera: {fileID: 1495118383}
       - CameraType: 4
         Camera: {fileID: 122889643}
     MapCardSlots: {fileID: 1984923769}
@@ -3301,17 +3298,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 583363411}
---- !u!114 &1495118383 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1828135048973416935, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-  m_PrefabInstance: {fileID: 3823245271628510916}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineVirtualCamera
 --- !u!114 &1510945914 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6526719887607729668, guid: 641a85252c7093f43a7145ac7b505d5f, type: 3}
@@ -3334,17 +3320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4212ee1232a463e808ab9900992cdec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutTwice.UI.MainMenu.Shop.SelectMapWindowView
---- !u!114 &1639354263 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 554391142632507164, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-  m_PrefabInstance: {fileID: 3823245271628510916}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b10fbcbc3d4e0eb65e4e762091bdcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CutTwice.Gameplay.Runtime.Location.ShopCompositionRoot
 --- !u!1001 &1714577850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4807,63 +4782,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1001 &3823245271628510916
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1257911431960530682, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-      propertyPath: m_Name
-      value: ShopLocation
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202062699503662232, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.3275003
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202062699503662232, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202062699503662232, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 17.221207
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202062699503662232, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8000736
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202062699503662232, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202062699503662232, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.5999019
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202062699503662232, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202062699503662232, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202062699503662232, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202062699503662232, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: aeb400ae3ff17f14fa25994fb32fc0f8, type: 3}
 --- !u!114 &6519115177933432883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4926,7 +4844,6 @@ SceneRoots:
   - {fileID: 221335431}
   - {fileID: 431215197682268824}
   - {fileID: 2120153474}
-  - {fileID: 3823245271628510916}
   - {fileID: 52160219}
   - {fileID: 359291380}
   - {fileID: 739174345}

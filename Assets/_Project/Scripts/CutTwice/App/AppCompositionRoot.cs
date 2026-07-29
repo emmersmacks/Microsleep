@@ -38,7 +38,6 @@ namespace CutTwice.App
             builder.RegisterSingleton<IGlobalState, GlobalBootstrapState>();
             builder.RegisterSingleton<IGlobalState, GlobalMainMenuState>();
             builder.RegisterSingleton<IGlobalState, GlobalGameState>();
-            builder.RegisterSingleton<IGlobalState, GlobalLocationState>();
             builder.RegisterSingleton<GlobalStateMachine>();
 
             // Player data

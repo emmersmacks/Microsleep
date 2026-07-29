@@ -1,6 +1,5 @@
 ﻿using System;
 using Cinemachine;
-using CutTwice.Core.Initialization;
 using CutTwice.UI.MainMenu.Credits;
 using CutTwice.UI.MainMenu.Leaderboard;
 using CutTwice.UI.MainMenu.MapCards;
@@ -15,7 +14,6 @@ namespace CutTwice.Menu
     public class MenuSceneReferences
     {
         public SelectMapWindowView SelectMapWindowView;
-        public CompositionRoot Location;
         public SelectLevelWindowView SelectLevelWindowView;
         public CreditsWindowView CreditsWindow;
         public LeaderboardWindowView LeaderboardWindow;

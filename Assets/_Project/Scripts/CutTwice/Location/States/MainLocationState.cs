@@ -26,6 +26,7 @@ namespace CutTwice.Location.States
         public async UniTask EnterAsync(IStateMachine stateMachine, CancellationToken ct)
         {
             _cameraSwitcher.SwitchTo(MenuCameraType.Main);
+            
             await _fadeService.FadeOutAsync(ct);
             await UniTask.Delay(200, cancellationToken: ct);
             _cameraSwitcher.CutBlend();

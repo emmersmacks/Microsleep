@@ -12,7 +12,7 @@ using CutTwice.Gameplay.Modes;
 using CutTwice.Gameplay.Runtime.Map;
 using CutTwice.Menu.GlobalStates;
 using CutTwice.Services;
-using CascadeDI.Builder;
+using CascadeDI.Container;
 
 namespace CutTwice.App
 {
@@ -20,9 +20,8 @@ namespace CutTwice.App
     {
         public AppSceneReferences SceneReferences;
 
-        public override void Compose(IContainerBuilder builder, RuntimeLifecycleManager lifecycleManager)
+        public override void Compose(IContainer builder, RuntimeLifecycleManager lifecycleManager)
         {
-            
             builder.RegisterSingleton<RuntimeLifecycleManager>(lifecycleManager);
             
             // UI

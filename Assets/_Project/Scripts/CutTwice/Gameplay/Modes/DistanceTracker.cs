@@ -8,7 +8,7 @@ namespace CutTwice.Gameplay.Modes
     public class DistanceTracker : ITickable
     {
         private readonly InfiniteRoadController _roadController;
-        private readonly GameSession _gameSession;
+        private readonly SessionTimer _sessionTimer;
         private readonly GameModeContext _gameModeContext;
         private readonly IEventBus _eventBus;
 
@@ -16,17 +16,17 @@ namespace CutTwice.Gameplay.Modes
 
         public float DistanceMeters { get; private set; }
 
-        public DistanceTracker(InfiniteRoadController roadController, GameSession gameSession, GameModeContext gameModeContext, IEventBus eventBus)
+        public DistanceTracker(InfiniteRoadController roadController, SessionTimer sessionTimer, GameModeContext gameModeContext, IEventBus eventBus)
         {
             _roadController = roadController;
-            _gameSession = gameSession;
+            _sessionTimer = sessionTimer;
             _gameModeContext = gameModeContext;
             _eventBus = eventBus;
         }
 
         public void Tick()
         {
-            if (!_gameSession.IsRunning || _goalReached)
+            if (!_sessionTimer.IsRunning || _goalReached)
                 return;
 
             DistanceMeters += _roadController.MovementSpeed * Time.deltaTime;

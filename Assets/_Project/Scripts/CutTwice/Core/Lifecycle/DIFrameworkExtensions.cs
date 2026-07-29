@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CascadeDI.Builder;
+using CascadeDI.Container;
 
 namespace CutTwice.Core.Lifecycle
 {
     public static class DIFrameworkExtensions
     {
-        public static IContainerBuilder RegisterTransientWithLifetime<TBase, TImplementation>(
-            this IContainerBuilder builder, params Type[] serviceTypes)
+        public static IContainer RegisterTransientWithLifetime<TBase, TImplementation>(
+            this IContainer builder, params Type[] serviceTypes)
         {
             var types = serviceTypes != null ? serviceTypes.ToList() : new List<Type>();
             
@@ -22,8 +22,8 @@ namespace CutTwice.Core.Lifecycle
             return builder.RegisterTransientFor<TImplementation>(types.ToArray());
         }
         
-        public static IContainerBuilder RegisterSingletonWithLifetime<T>(
-            this IContainerBuilder builder, List<Type> types = null)
+        public static IContainer RegisterSingletonWithLifetime<T>(
+            this IContainer builder, List<Type> types = null)
         {
             types ??= new List<Type>();
             
@@ -37,8 +37,8 @@ namespace CutTwice.Core.Lifecycle
             return builder.RegisterSingletonFor<T>(types.ToArray());
         }
         
-        public static IContainerBuilder RegisterSingletonWithLifetime<TBase, TImplementation>(
-            this IContainerBuilder builder, List<Type> types = null)
+        public static IContainer RegisterSingletonWithLifetime<TBase, TImplementation>(
+            this IContainer builder, List<Type> types = null)
         {
             types ??= new List<Type>();
             
@@ -52,8 +52,8 @@ namespace CutTwice.Core.Lifecycle
             return builder.RegisterSingletonFor<TImplementation>(types.ToArray());
         }
         
-        public static IContainerBuilder RegisterSingletonWithLifetime<T>(
-            this IContainerBuilder builder, T instance, List<Type> types = null)
+        public static IContainer RegisterSingletonWithLifetime<T>(
+            this IContainer builder, T instance, List<Type> types = null)
         {
             types ??= new List<Type>();
             

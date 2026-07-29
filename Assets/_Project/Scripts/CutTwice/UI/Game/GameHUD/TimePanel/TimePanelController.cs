@@ -7,16 +7,16 @@ namespace CutTwice.UI.Game.GameHUD.TimePanel
 {
     public class TimePanelController : WindowControllerBase<TimePanelView>, ITickable
     {
-        private readonly GameSession _gameSession;
+        private readonly SessionTimer _sessionTimer;
 
-        public TimePanelController(TimePanelView view, GameSession gameSession) : base(view)
+        public TimePanelController(TimePanelView view, SessionTimer sessionTimer) : base(view)
         {
-            _gameSession = gameSession;
+            _sessionTimer = sessionTimer;
         }
 
         public void Tick()
         {
-            TimeSpan t = TimeSpan.FromSeconds(_gameSession.SessionTime);
+            TimeSpan t = TimeSpan.FromSeconds(_sessionTimer.SessionTime);
             View.TimeText.text = $"{(int)t.TotalHours:00}:{t.Minutes:00}:{t.Seconds:00}";
         }
     }

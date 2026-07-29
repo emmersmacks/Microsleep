@@ -12,7 +12,7 @@ namespace CutTwice.Gameplay.Factories
         public RaycastStripController RaycastStripController;
     }
     
-    public class TrafficGameObjectFactory : GameObjectFactory  {
+    public class TrafficGameObjectFactory : ActionObjectFactory  {
         private readonly Core.EventBus.IEventBus _eventBus;
 
         public TrafficGameObjectFactory(Core.EventBus.IEventBus eventBus)

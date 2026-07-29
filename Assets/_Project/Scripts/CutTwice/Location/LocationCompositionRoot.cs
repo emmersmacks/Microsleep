@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CascadeDI.Builder;
+using CascadeDI.Container;
 using CutTwice.Core.EventBus;
 using CutTwice.Core.Factory;
 using CutTwice.Core.GameStates;
@@ -18,11 +18,12 @@ namespace CutTwice.Location
     {
         public LocationWindowView LocationWindow;
         public CameraSwitchContext CameraSwitchContext;
-        
-        public override void Compose(IContainerBuilder builder, RuntimeLifecycleManager lifecycleManager)
+
+        public override void Compose(IContainer builder, RuntimeLifecycleManager lifecycleManager)
         {
             builder.RegisterSingleton<RuntimeLifecycleManager>(lifecycleManager);
-            
+            builder.RegisterSingleton<LocationFactory>();
+
             var eventBus = new EventBus();
             builder.RegisterSingleton<IEventBus>(eventBus);
             

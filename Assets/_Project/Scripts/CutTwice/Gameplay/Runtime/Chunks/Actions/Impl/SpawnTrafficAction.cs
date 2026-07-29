@@ -25,7 +25,7 @@ namespace CutTwice.Gameplay.Runtime.Chunks.Actions
             public SimpleRotation Rotation;
         }
 
-        private readonly IGameObjectFactory _gameObjectFactory;
+        private readonly ActionObjectFactory _gameObjectFactory;
         private readonly RuntimeLifecycleManager _lifecycleManager;
 
         private Parameters _parameters;

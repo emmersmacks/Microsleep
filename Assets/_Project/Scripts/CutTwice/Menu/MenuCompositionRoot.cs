@@ -11,7 +11,7 @@ using CutTwice.Menu.States;
 using CutTwice.UI.MainMenu.Credits;
 using CutTwice.UI.MainMenu.Leaderboard;
 using CutTwice.UI.MainMenu.Menu;
-using CascadeDI.Builder;
+using CascadeDI.Container;
 using CutTwice.UI.MainMenu.SelectLevel;
 
 namespace CutTwice.Menu
@@ -20,7 +20,7 @@ namespace CutTwice.Menu
     {
         public MenuSceneReferences SceneReferences;
         
-        public override void Compose(IContainerBuilder builder, RuntimeLifecycleManager lifecycleManager)
+        public override void Compose(IContainer builder, RuntimeLifecycleManager lifecycleManager)
         {
             builder.RegisterSingleton<RuntimeLifecycleManager>(lifecycleManager);
             

@@ -6,7 +6,6 @@ using CutTwice.Core.Addressables;
 using CutTwice.Core.Lifecycle;
 using Cysharp.Threading.Tasks;
 using CascadeDI;
-using CascadeDI.Builder;
 using CascadeDI.Container;
 using UnityEngine;
 
@@ -35,13 +34,12 @@ namespace CutTwice.Core.Initialization
                 appBootstrap = bootstrapObj.GetComponent<AppBootstrap>();
             }
             
-            var builder = appBootstrap.Container == null ? new ContainerBuilder() : appBootstrap.Container.CreateChildBuilder();
+            Container = appBootstrap.Container == null ? new Container() : appBootstrap.Container.CreateChild();
             var lifecycleManager = LifecycleManagerUtils.CreateLifecycleManager(gameObject.name);
-            
-            CompositionRoot.Compose(builder, lifecycleManager);
-            Container = builder.Build();
+
+            CompositionRoot.Compose(Container, lifecycleManager);
             var scope = Container.CreateScope();
-            
+
             var lifecicleObjects = scope.Resolve<List<ILifecycleObject>>();
             lifecycleManager.Register(lifecicleObjects);
             await lifecycleManager.InitAsync(destroyCancellationToken);

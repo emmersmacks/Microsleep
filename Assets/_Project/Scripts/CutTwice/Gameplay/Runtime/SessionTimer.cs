@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CutTwice.Gameplay
 {
-    public class GameSession : ITickable
+    public class SessionTimer : ITickable
     {
         public float SessionTime { get; private set; }
         public bool IsRunning { get; private set; }

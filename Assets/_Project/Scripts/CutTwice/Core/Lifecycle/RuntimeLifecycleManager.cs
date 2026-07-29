@@ -15,22 +15,33 @@ namespace CutTwice.Core.Lifecycle
         private List<IDisposable> _disposableList = new ();
 
         private readonly List<object> _pendingUnregister = new();
+        private readonly HashSet<IInitializable> _initializedInitializables = new();
 
         public async UniTask InitAsync(CancellationToken ct)
         {
-            foreach (var initializable in _initializableList)
+            for (var i = 0; i < _initializableList.Count; i++)
             {
-                await initializable.InitAsync(ct);
+                await InitializeIfNeededAsync(_initializableList[i], ct);
             }
         }
-        
+
         public async UniTask RuntimeRegisterAsync(object obj, CancellationToken ct)
         {
             Register(obj);
             if (obj is IInitializable initializable)
             {
-                await initializable.InitAsync(ct);
+                await InitializeIfNeededAsync(initializable, ct);
             }
+        }
+
+        private async UniTask InitializeIfNeededAsync(IInitializable initializable, CancellationToken ct)
+        {
+            if (!_initializedInitializables.Add(initializable))
+            {
+                return;
+            }
+
+            await initializable.InitAsync(ct);
         }
 
         public void Register(List<ILifecycleObject> lifecycleObjects)

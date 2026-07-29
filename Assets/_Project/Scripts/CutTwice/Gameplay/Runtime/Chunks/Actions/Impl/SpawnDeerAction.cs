@@ -29,7 +29,7 @@ namespace CutTwice.Gameplay.Runtime.Chunks.Actions
         }
         
         private readonly InfiniteRoadController _infiniteRoadController;
-        private readonly IGameObjectFactory _gameObjectFactory;
+        private readonly ActionObjectFactory _gameObjectFactory;
         private readonly RuntimeLifecycleManager _lifecycleManager;
         
         private GameObject _prefab;

@@ -6,7 +6,6 @@ using CutTwice.Core.Lifecycle;
 using Cysharp.Threading.Tasks;
 using CascadeDI;
 using CascadeDI.Container;
-using CascadeDI.Builder;
 
 namespace CutTwice.Core.RivletUI
 {
@@ -19,13 +18,11 @@ namespace CutTwice.Core.RivletUI
             _container = container;
         }
 
-        public async UniTask<IWindowInstance> CreateAsync(string name, Action<IContainerBuilder> compose, CancellationToken ct)
+        public async UniTask<IWindowInstance> CreateAsync(string name, Action<IContainer> compose, CancellationToken ct)
         {
             var lifecycleManager = LifecycleManagerUtils.CreateLifecycleManager(name);
-            var builder = _container.CreateChildBuilder();
-            compose(builder);
-            var childContainer = builder.Build();
-
+            var childContainer = _container.CreateChild();
+            compose(childContainer);
             var scope = childContainer.CreateScope();
             var lifecicleObjects = scope.Resolve<List<ILifecycleObject>>(false);
             await lifecycleManager.RuntimeRegisterAsync(lifecicleObjects, ct);

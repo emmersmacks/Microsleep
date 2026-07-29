@@ -25,12 +25,31 @@ namespace CutTwice.Core.RivletUI
         public UIManager(List<IWindow> windows, IEventBus eventBus)
         {
             _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
+            RegisterNewWindows(windows);
+        }
+
+        /// <summary>
+        /// Registers windows whose concrete runtime type isn't known to this manager yet
+        /// (skips ones already registered instead of throwing) and returns only the ones
+        /// that were actually added. Used for the initial IWindow batch and for windows
+        /// composed later at runtime (e.g. a spot-specific window like ShopWindow).
+        /// </summary>
+        public List<IWindow> RegisterNewWindows(IEnumerable<IWindow> windows)
+        {
+            var added = new List<IWindow>();
             foreach (var window in windows)
             {
+                var type = window.GetType();
+                if (_registry.ContainsKey(type))
+                    continue;
+
                 typeof(UIManager).GetMethod(nameof(Register))!
-                    .MakeGenericMethod(window.GetType())
+                    .MakeGenericMethod(type)
                     .Invoke(this, new object[] { window });
+
+                added.Add(window);
             }
+            return added;
         }
 
         public UniTask InitAsync(CancellationToken ct)

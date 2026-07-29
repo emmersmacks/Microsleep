@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CascadeDI.Container;
 using CutTwice.Core.EventBus;
 using CutTwice.Core.Factory;
 using CutTwice.Core.GameStates;
@@ -22,7 +23,6 @@ using CutTwice.Gameplay.Runtime.Scenario.Stages;
 using CutTwice.Gameplay.Runtime.Sound.Components;
 using CutTwice.UI.Game.GameHUD;
 using CutTwice.UI.Game.GameOver;
-using CascadeDI.Builder;
 
 namespace CutTwice.Gameplay
 {
@@ -30,7 +30,7 @@ namespace CutTwice.Gameplay
     {
         public GameSceneReferences GameSceneReferences;
 
-        public override void Compose(IContainerBuilder builder, RuntimeLifecycleManager lifecycleManager)
+        public override void Compose(IContainer builder, RuntimeLifecycleManager lifecycleManager)
         {
             builder.RegisterSingleton<RuntimeLifecycleManager>(lifecycleManager);
 
@@ -41,12 +41,11 @@ namespace CutTwice.Gameplay
             builder.RegisterSingletonWithLifetime<GameInitializer>();
         }
 
-        private void ComposeGameplayModule(IContainerBuilder builder, RuntimeLifecycleManager lifecycleManager)
+        private void ComposeGameplayModule(IContainer builder, RuntimeLifecycleManager lifecycleManager)
         {
             // Services
             var eventBus = new EventBus();
             builder.RegisterSingleton<IEventBus>(eventBus);
-            builder.RegisterSingleton<RuntimeLifecycleManager>(lifecycleManager);
             
             // Gameplay
             var playerInputController = lifecycleManager.Register(new PlayerInputController(GameSceneReferences.PlayerCamera));
@@ -110,11 +109,11 @@ namespace CutTwice.Gameplay
             builder.RegisterSingletonWithLifetime<ObstacleRuntimeController>();
             
             // Session
-            builder.RegisterSingletonWithLifetime<GameSession>();
+            builder.RegisterSingletonWithLifetime<SessionTimer>();
             builder.RegisterSingletonWithLifetime<DistanceTracker>();
         }
 
-        private void ComposeUIModule(IContainerBuilder builder)
+        private void ComposeUIModule(IContainer builder)
         {
             builder.RegisterSingleton(typeof(GameHUDWindowView), GameSceneReferences.gameHUDWindowView);
             builder.RegisterSingletonWithLifetime<GameHUDWindow>(new List<Type>{ typeof(IWindow) });

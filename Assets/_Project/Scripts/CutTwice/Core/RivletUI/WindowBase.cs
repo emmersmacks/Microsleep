@@ -4,7 +4,7 @@ using System.Threading;
 using CutTwice.Core.Lifecycle;
 using CutTwice.Core.Factory;
 using Cysharp.Threading.Tasks;
-using CascadeDI.Builder;
+using CascadeDI.Container;
 
 namespace CutTwice.Core.RivletUI
 {
@@ -29,7 +29,7 @@ namespace CutTwice.Core.RivletUI
             Controllers = _windowInstance.Controllers;
         }
 
-        public abstract void Compose(IContainerBuilder builder);
+        public abstract void Compose(IContainer builder);
 
         public void Show(object payload = null)
         {

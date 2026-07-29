@@ -18,20 +18,15 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 003e1d67082254842a8e61c53f78514d, type: 3}
   Nodes:
   - rid: 1325954232302174417
-  - rid: 1325954232302174418
   - rid: 1325954232302174419
-  - rid: 1325954232302174420
+  - rid: 1325954499599138906
   Connections:
   - NodeAId: 32a39e0d481749039a8b3cdc74f32cc2
-    NodeBId: bd1ce694aefe46f59c583aa52d14688a
-    Direction: 0
-    DisplayName: 
-  - NodeAId: bd1ce694aefe46f59c583aa52d14688a
     NodeBId: a2f97a92beb742eda3d9975479a2c854
     Direction: 0
     DisplayName: 
-  - NodeAId: bd1ce694aefe46f59c583aa52d14688a
-    NodeBId: 4730bd1d7c90477fa7dd9e3fba965b92
+  - NodeAId: a2f97a92beb742eda3d9975479a2c854
+    NodeBId: a289309a7ad84875b0b2297e7d227de7
     Direction: 0
     DisplayName: 
   RootInstanceId: 32a39e0d481749039a8b3cdc74f32cc2
@@ -45,13 +40,6 @@ MonoBehaviour:
         MaxPassCount: 1
         Preset: {fileID: 11400000, guid: 28ecc5815183a1f4e8077fb7282c2321, type: 2}
         ItemIdsForSale: []
-    - rid: 1325954232302174418
-      type: {class: CrossroadNode, ns: CutTwice.Gameplay.Runtime.Map.Nodes, asm: Assembly-CSharp}
-      data:
-        InstanceId: bd1ce694aefe46f59c583aa52d14688a
-        MaxPassCount: 1
-        Preset: {fileID: 11400000, guid: 4efcbdeb7f76d3c4d8279421e5d3a3b5, type: 2}
-        Biome: 0
     - rid: 1325954232302174419
       type: {class: LocationNode, ns: CutTwice.Gameplay.Runtime.Map.Nodes, asm: Assembly-CSharp}
       data:
@@ -59,10 +47,10 @@ MonoBehaviour:
         MaxPassCount: 1
         Preset: {fileID: 11400000, guid: 28ecc5815183a1f4e8077fb7282c2321, type: 2}
         ItemIdsForSale: []
-    - rid: 1325954232302174420
+    - rid: 1325954499599138906
       type: {class: LocationNode, ns: CutTwice.Gameplay.Runtime.Map.Nodes, asm: Assembly-CSharp}
       data:
-        InstanceId: 4730bd1d7c90477fa7dd9e3fba965b92
+        InstanceId: a289309a7ad84875b0b2297e7d227de7
         MaxPassCount: 1
         Preset: {fileID: 11400000, guid: 28ecc5815183a1f4e8077fb7282c2321, type: 2}
         ItemIdsForSale: []

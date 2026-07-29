@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CascadeDI.Builder;
+using CascadeDI.Container;
 using CutTwice.Core.Factory;
 using CutTwice.Core.Lifecycle;
 using CutTwice.Core.RivletUI;
@@ -15,7 +15,7 @@ namespace CutTwice.UI.MainMenu.SelectLevel
         {
         }
 
-        public override void Compose(IContainerBuilder builder)
+        public override void Compose(IContainer builder)
         {
             builder.RegisterSingleton(typeof(SmoothBackButtonView), _windowView.BackButtonView);
             builder.RegisterSingletonWithLifetime<SmoothBackButtonController>(new List<Type> { typeof(IWindowController)});

@@ -17,7 +17,7 @@ namespace CutTwice.Gameplay.GameStates
         private readonly ObstacleSequenceBuilder _builder;
         private readonly ObstacleRuntimeController _runtime;
         private readonly IEventBus _eventBus;
-        private readonly GameSession _gameSession;
+        private readonly SessionTimer _sessionTimer;
         private readonly AdventureFlowService _adventureFlowService;
 
         private CancellationTokenSource _loopCts;
@@ -28,14 +28,14 @@ namespace CutTwice.Gameplay.GameStates
             ObstacleSequenceBuilder builder,
             ObstacleRuntimeController runtime,
             IEventBus eventBus,
-            GameSession gameSession,
+            SessionTimer sessionTimer,
             AdventureFlowService adventureFlowService)
         {
             _service = service;
             _builder = builder;
             _runtime = runtime;
             _eventBus = eventBus;
-            _gameSession = gameSession;
+            _sessionTimer = sessionTimer;
             _adventureFlowService = adventureFlowService;
         }
 
@@ -48,7 +48,7 @@ namespace CutTwice.Gameplay.GameStates
 
             _eventBus.Subscribe<GameOverEvent>(OnGameOverRequested);
             _eventBus.Subscribe<RunCompletedEvent>(OnRunCompleted);
-            _gameSession.StartNewRun();
+            _sessionTimer.StartNewRun();
 
             var sequence = await LoadSequenceAsync(new SequenceModulePreviewDto { Name = "DefaultSequenceModule" }, _loopCts.Token);
             RunLoopAsync(sequence, _loopCts.Token).Forget(Debug.LogException);
@@ -76,7 +76,7 @@ namespace CutTwice.Gameplay.GameStates
 
         private void OnGameOverRequested(GameOverEvent evt)
         {
-            _gameSession.Stop();
+            _sessionTimer.Stop();
             _loopCts.Cancel();
             _adventureFlowService.HandleRunFailed();
             _stateMachine.SetStateAsync<EndGameState>(_appCt).Forget(Debug.LogException);
@@ -84,7 +84,7 @@ namespace CutTwice.Gameplay.GameStates
 
         private void OnRunCompleted(RunCompletedEvent evt)
         {
-            _gameSession.Stop();
+            _sessionTimer.Stop();
             _loopCts.Cancel();
             if (!_adventureFlowService.TryHandleRunCompleted(_appCt))
             {

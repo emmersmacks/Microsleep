@@ -9,12 +9,4 @@
     {
 
     }
-
-    public enum MenuCameraType
-    {
-        Main,
-        SelectLevel,
-        Location,
-        SelectMap
-    }
 }

@@ -34,12 +34,12 @@ namespace CutTwice.UI.MainMenu.Menu.StartGameButton
 
         private void StartGame()
         {
-            _menuStateMachine.TransitionToAsync<SelectLevelState>(_cancellationToken).Forget(Debug.LogException);
+            _menuStateMachine.NavigateToAsync<SelectLevelState>(_cancellationToken).Forget(Debug.LogException);
         }
-        
+
         private void SelectMap()
         {
-            _menuStateMachine.TransitionToAsync<SelectMapState>(_cancellationToken).Forget(Debug.LogException);
+            _menuStateMachine.NavigateToAsync<SelectMapState>(_cancellationToken).Forget(Debug.LogException);
         }
 
         private void ShowCredits()
@@ -49,7 +49,7 @@ namespace CutTwice.UI.MainMenu.Menu.StartGameButton
 
         private void ShowShop()
         {
-            _menuStateMachine.TransitionToAsync<LocationState>(_cancellationToken).Forget(Debug.LogException);
+            _menuStateMachine.NavigateToAsync<ILocationEntryState>(_cancellationToken).Forget(Debug.LogException);
         }
     }
 }

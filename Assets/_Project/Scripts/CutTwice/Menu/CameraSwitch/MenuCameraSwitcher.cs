@@ -1,54 +1,41 @@
-using System.Threading;
 using Cinemachine;
-using CutTwice.Core.EventBus;
-using CutTwice.Core.Lifecycle;
-using Cysharp.Threading.Tasks;
 
 namespace CutTwice.Menu
 {
-    public class MenuCameraSwitcher : IInitializable
+    public class MenuCameraSwitcher
     {
         private const int ActivePriority = 20;
         private const int InactivePriority = 10;
 
-        private readonly CameraSwitchContext _cameraContext;
+        private readonly CinemachineBrain _brain;
+        private CinemachineVirtualCamera _activeCamera;
 
-        public MenuCameraSwitcher(CameraSwitchContext cameraContext)
+        public MenuCameraSwitcher(CinemachineBrain brain)
         {
-            _cameraContext = cameraContext;
+            _brain = brain;
         }
 
-        public UniTask InitAsync(CancellationToken ct)
+        public void SwitchTo(CinemachineVirtualCamera camera)
         {
-            SetActiveCamera(_cameraContext.GetCamera(MenuCameraType.Main));
-            return UniTask.CompletedTask;
-        }
-
-        public void SwitchTo(MenuCameraType cameraType)
-        {
-            var target = _cameraContext.GetCamera(cameraType);
-            if (target == null)
+            if (camera == null || camera == _activeCamera)
             {
                 return;
             }
 
-            SetActiveCamera(target);
+            camera.Priority = ActivePriority;
+            if (_activeCamera != null)
+            {
+                _activeCamera.Priority = InactivePriority;
+            }
+
+            _activeCamera = camera;
         }
 
         public void CutBlend()
         {
-            var brain = _cameraContext.CinemachineBrain;
-            if (brain != null)
+            if (_brain != null)
             {
-                brain.ActiveBlend = null;
-            }
-        }
-
-        private void SetActiveCamera(CinemachineVirtualCamera active)
-        {
-            foreach (var cameraData in _cameraContext.Cameras)
-            {
-                cameraData.Camera.Priority = cameraData.Camera == active ? ActivePriority : InactivePriority;
+                _brain.ActiveBlend = null;
             }
         }
     }

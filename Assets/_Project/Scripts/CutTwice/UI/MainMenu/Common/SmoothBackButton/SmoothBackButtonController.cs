@@ -2,7 +2,6 @@
 using CutTwice.Core.GameStates;
 using CutTwice.Core.Lifecycle;
 using CutTwice.Core.RivletUI;
-using CutTwice.Menu.States;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -27,7 +26,7 @@ namespace CutTwice.UI.MainMenu.SelectLevel.SmoothBackButton
 
         private void OnBackButtonClicked()
         {
-            _menuStateMachine.TransitionToAsync<MainMenuState>(_cancellationToken).Forget(Debug.LogException);
+            _menuStateMachine.GoBackAsync(_cancellationToken).Forget(Debug.LogException);
         }
     }
 }

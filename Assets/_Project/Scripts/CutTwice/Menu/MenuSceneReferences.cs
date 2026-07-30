@@ -18,7 +18,10 @@ namespace CutTwice.Menu
         public CreditsWindowView CreditsWindow;
         public LeaderboardWindowView LeaderboardWindow;
         public MenuWindowView MenuWindow;
-        public CameraSwitchContext CameraSwitchContext;
+        public CinemachineBrain CinemachineBrain;
+        public CinemachineVirtualCamera MainMenuCamera;
+        public CinemachineVirtualCamera SelectLevelCamera;
+        public CinemachineVirtualCamera SelectMapCamera;
         public MapCardSlotsView MapCardSlots;
         public MapWindowView MapWindowView;
     }

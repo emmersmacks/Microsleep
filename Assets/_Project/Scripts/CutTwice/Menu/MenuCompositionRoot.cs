@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using Cinemachine;
 using CutTwice.Core.EventBus;
 using CutTwice.Core.Factory;
 using CutTwice.Core.GameStates;
@@ -53,7 +54,6 @@ namespace CutTwice.Menu
                 locationPrefab.transform.rotation);
 
             _spotCompositionRoot = instance.GetComponentInChildren<SpotCompositionRoot>(true);
-            SceneReferences.CameraSwitchContext.Cameras.Add(new CameraSwitchContext.CameraData(){ Camera = _spotCompositionRoot.Camera, CameraType = MenuCameraType.Location});
         }
 
         public override void Compose(IContainer container, RuntimeLifecycleManager lifecycleManager)
@@ -63,8 +63,12 @@ namespace CutTwice.Menu
             var eventBus = new EventBus();
             container.RegisterSingleton<IEventBus>(eventBus);
 
-            container.RegisterSingleton<CameraSwitchContext>(SceneReferences.CameraSwitchContext);
+            container.RegisterSingleton<CinemachineBrain>(SceneReferences.CinemachineBrain);
             container.RegisterSingletonWithLifetime<MenuCameraSwitcher>();
+
+            container.RegisterSingleton<StageCamera<MainMenuState>>(new StageCamera<MainMenuState>(SceneReferences.MainMenuCamera));
+            container.RegisterSingleton<StageCamera<SelectLevelState>>(new StageCamera<SelectLevelState>(SceneReferences.SelectLevelCamera));
+            container.RegisterSingleton<StageCamera<SelectMapState>>(new StageCamera<SelectMapState>(SceneReferences.SelectMapCamera));
 
             _spotCompositionRoot.Compose(container, lifecycleManager);
 
@@ -97,7 +101,6 @@ namespace CutTwice.Menu
             container.RegisterSingletonWithLifetime<MainMenuState>(new List<Type>{ typeof(IMenuState) });
             container.RegisterSingletonWithLifetime<SelectMapState>(new List<Type>{ typeof(IMenuState) });
             container.RegisterSingletonWithLifetime<SelectLevelState>(new List<Type>{ typeof(IMenuState) });
-            container.RegisterSingletonWithLifetime<LocationState>(new List<Type>{ typeof(IMenuState) });
             container.RegisterSingletonWithLifetime<MenuStateMachine>();
 
             // Initializer

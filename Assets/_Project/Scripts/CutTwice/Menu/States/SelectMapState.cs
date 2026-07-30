@@ -4,19 +4,19 @@ using CutTwice.Core.GameStates;
 using CutTwice.Core.RivletUI;
 using CutTwice.Menu;
 using CutTwice.Services;
-using CutTwice.UI.MainMenu.Menu;
+using CutTwice.UI.MainMenu.Shop;
 using Cysharp.Threading.Tasks;
 
 namespace CutTwice.Menu.States
 {
-    public class MainMenuState : IMenuState
+    public class SelectMapState : IMenuState
     {
         private readonly IEventBus _eventBus;
         private readonly IFadeService _fadeService;
         private readonly MenuCameraSwitcher _cameraSwitcher;
-        private readonly StageCamera<MainMenuState> _stageCamera;
+        private readonly StageCamera<SelectMapState> _stageCamera;
 
-        public MainMenuState(IEventBus eventBus, IFadeService fadeService, MenuCameraSwitcher cameraSwitcher, StageCamera<MainMenuState> stageCamera)
+        public SelectMapState(IEventBus eventBus, IFadeService fadeService, MenuCameraSwitcher cameraSwitcher, StageCamera<SelectMapState> stageCamera)
         {
             _eventBus = eventBus;
             _fadeService = fadeService;
@@ -31,7 +31,7 @@ namespace CutTwice.Menu.States
             await UniTask.Delay(200, cancellationToken: ct);
             _cameraSwitcher.CutBlend();
 
-            _eventBus.Publish(new PushWindowRequest<MenuWindow>());
+            _eventBus.Publish(new PushWindowRequest<SelectMapWindow>());
             await _fadeService.FadeInAsync(ct);
         }
 

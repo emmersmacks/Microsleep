@@ -14,17 +14,19 @@ namespace CutTwice.Menu.States
         private readonly IEventBus _eventBus;
         private readonly IFadeService _fadeService;
         private readonly MenuCameraSwitcher _cameraSwitcher;
+        private readonly StageCamera<SelectLevelState> _stageCamera;
 
-        public SelectLevelState(IEventBus eventBus, IFadeService fadeService, MenuCameraSwitcher cameraSwitcher)
+        public SelectLevelState(IEventBus eventBus, IFadeService fadeService, MenuCameraSwitcher cameraSwitcher, StageCamera<SelectLevelState> stageCamera)
         {
             _eventBus = eventBus;
             _fadeService = fadeService;
             _cameraSwitcher = cameraSwitcher;
+            _stageCamera = stageCamera;
         }
 
         public async UniTask EnterAsync(IStateMachine stateMachine, CancellationToken ct)
         {
-            _cameraSwitcher.SwitchTo(MenuCameraType.SelectLevel);
+            _cameraSwitcher.SwitchTo(_stageCamera.Camera);
             await _fadeService.FadeOutAsync(ct);
             await UniTask.Delay(200, cancellationToken: ct);
             _cameraSwitcher.CutBlend();

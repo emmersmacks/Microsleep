@@ -51,6 +51,7 @@ namespace CutTwice.Gameplay
             var playerInputController = lifecycleManager.Register(new PlayerInputController(GameSceneReferences.PlayerCamera));
             builder.RegisterSingleton(typeof(PlayerInputController), playerInputController);
             var playerCarPresenter = GameSceneReferences.Player.GetComponent<PlayerCarPresenter>();
+            builder.RegisterSingleton<PlayerCarPresenter>(playerCarPresenter);
             var playerCarController = lifecycleManager.Register(new PlayerCarController(playerCarPresenter, playerInputController));
             var playerSleepPresenter = GameSceneReferences.Player.GetComponent<PlayerSleepPresenter>();
             var playerSleepController = lifecycleManager.Register(new PlayerSleepController(playerSleepPresenter));
@@ -58,7 +59,7 @@ namespace CutTwice.Gameplay
             var steeringInterferencePresenter = GameSceneReferences.Player.GetComponent<SteeringInterferencePresenter>();
             var steeringInterferenceController = lifecycleManager.Register(new SteeringInterferenceController(steeringInterferencePresenter, playerSleepController));
             
-            var infiniteRoadController = lifecycleManager.Register(new InfiniteRoadController(GameSceneReferences.InfiniteRoadPresenter));
+            var infiniteRoadController = lifecycleManager.Register(new InfiniteRoadController(GameSceneReferences.InfiniteRoadPresenter, lifecycleManager));
             builder.RegisterSingleton<InfiniteRoadController>(infiniteRoadController);
             
             var rotateBackviewMirrorController = lifecycleManager.Register(new RotateMirrorController(GameSceneReferences.RotateBackviewMirrorPresenter, playerInputController));

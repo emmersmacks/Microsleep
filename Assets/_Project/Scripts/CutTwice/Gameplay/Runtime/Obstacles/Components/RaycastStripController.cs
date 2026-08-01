@@ -1,4 +1,4 @@
-﻿using CutTwice.Core.EventBus;
+﻿using System;
 using CutTwice.Core.Lifecycle;
 using UnityEngine;
 
@@ -7,16 +7,16 @@ namespace CutTwice.Gameplay.Runtime.Obstacles.Components
     public class RaycastStripController : IFixedTickable
     {
         private readonly RaycastStripPresenter _presenter;
-        private readonly IEventBus _eventBus;
+        private readonly Action _onHit;
 
         private Vector3 _previousPosition;
         private bool _hasPrevious;
 
-        public RaycastStripController(RaycastStripPresenter presenter, IEventBus eventBus)
+        public RaycastStripController(RaycastStripPresenter presenter, Action onHit)
         {
             _presenter = presenter;
             _hasPrevious = false;
-            _eventBus = eventBus;
+            _onHit = onHit;
         }
 
         public void FixedTick()
@@ -44,7 +44,7 @@ namespace CutTwice.Gameplay.Runtime.Obstacles.Components
             if (worldDir.sqrMagnitude <= Mathf.Epsilon) worldDir = _presenter.transform.right;
             Vector3 stripStart = worldCenter - worldDir * (_presenter.Width * 0.5f);
 
-            bool gameOverInvoked = false;
+            bool hitInvoked = false;
             for (int i = 0; i < _presenter.Count; i++)
             {
                 float t = (_presenter.Count == 1) ? 0.5f : (float)i / (_presenter.Count - 1);
@@ -52,10 +52,10 @@ namespace CutTwice.Gameplay.Runtime.Obstacles.Components
 
                 if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, distance, _presenter.LayerMask, _presenter.TriggerInteraction))
                 {
-                    if (!gameOverInvoked)
+                    if (!hitInvoked)
                     {
-                        _eventBus.Publish(new GameOverEvent());
-                        gameOverInvoked = true;
+                        _onHit?.Invoke();
+                        hitInvoked = true;
                     }
 
                     if (_presenter.DebugDraw)

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CutTwice.Gameplay.Runtime.Map.Presets.CrossroadPreset
   Id: TwoCrossroad
   DisplayName: Two Line Crossroad
-  Icon: {fileID: 21300000, guid: bfd7f2d02bcb369458540a3a6e2cea7f, type: 3}
+  Icon: {fileID: 21300000, guid: ef7d9d623766bca4eb8c1911dd0f753a, type: 3}

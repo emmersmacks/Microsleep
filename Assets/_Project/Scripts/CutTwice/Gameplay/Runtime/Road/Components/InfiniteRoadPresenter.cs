@@ -9,5 +9,8 @@ namespace CutTwice.Gameplay.Runtime.Road.Components
         public float moveSpeed = 10f;        // Скорость движения назад
         public float segmentLength = 30f;    // Длина одного сегмента
         public float recycleZ = -50f;        // Когда перемещать назад
+
+        [Header("Crossroad")]
+        public GameObject CrossroadForkPrefab;
     }
 }

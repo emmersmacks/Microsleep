@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 409c544745546e54aa665e6446957d38, type: 3}
-  m_Name: BlueSunsetLocationPreset
+  m_Name: SignalTowerPreset
   m_EditorClassIdentifier: Assembly-CSharp::CutTwice.Gameplay.Runtime.Map.Presets.LocationPreset
-  Id: BlueSunset
-  DisplayName: GAS "Blue Sunset"
-  Icon: {fileID: 21300000, guid: 476cc9c85d97e9c479c2d86c8bace0c3, type: 3}
+  Id: SignalTower
+  DisplayName: Signal Tower
+  Icon: {fileID: 21300000, guid: 3e9e445913d09094f813a9d536bc198f, type: 3}

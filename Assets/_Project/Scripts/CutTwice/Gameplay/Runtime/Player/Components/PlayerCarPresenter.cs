@@ -10,7 +10,10 @@ namespace CutTwice.Gameplay.Runtime.Player.Components
         [Header("Bounds")]
         [SerializeField] public float minX = -5f;
         [SerializeField] public float maxX = 5f;
-        
+
+        public float MidX => (minX + maxX) * 0.5f;
+        public bool IsOnLeftSide => transform.position.x < MidX;
+
         [Header("References")]
         public Transform steeringWheel;
 

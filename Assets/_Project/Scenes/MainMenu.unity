@@ -246,7 +246,8 @@ MonoBehaviour:
     Hanifi \u015Eahin from Pixabay\n\nSound Effect by Aman Kumar from Pixabay\n\nCar
     Radio Fallout Fan Art made by ACBRadio\n\nCar mirror (Modular) by Ele.G\n\nLow-Poly
     Gas Station | Game-Ready 3D Environment by Nali\n\nGasstation Sign - 2048px\xB2
-    by Mark Peters\n\nHighway sign by haleeem\n\nMap Rolled by jvalentine"
+    by Mark Peters\n\nHighway sign by haleeem\n\nMap Rolled by jvalentine\n\nKu-ring-gai
+    lattice Tower - CAD model by Sky Monkey\n\nIbnu Alwi Marzuqi"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d5a8f758b18dc44cb32d8e84a5bc8a1, type: 2}
   m_sharedMaterial: {fileID: -4355748980225351114, guid: 4d5a8f758b18dc44cb32d8e84a5bc8a1, type: 2}
@@ -2729,6 +2730,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1292675334}
+  - component: {fileID: 1292675336}
+  - component: {fileID: 1292675335}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -2753,8 +2756,46 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 73.163}
-  m_SizeDelta: {x: 1920, y: 933.67}
+  m_SizeDelta: {x: 1527.3525, y: 742.7309}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1292675335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292675333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.7207546, g: 0.6090716, b: 0.4229333, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 59f33b43feeb68347a86459424d16a4d, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1.81
+--- !u!222 &1292675336
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292675333}
+  m_CullTransparentMesh: 1
 --- !u!1 &1331582686
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,6 +4880,6 @@ SceneRoots:
   - {fileID: 221335431}
   - {fileID: 431215197682268824}
   - {fileID: 2120153474}
+  - {fileID: 739174345}
   - {fileID: 52160219}
   - {fileID: 359291380}
-  - {fileID: 739174345}

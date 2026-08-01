@@ -29,7 +29,7 @@ namespace CutTwice.Gameplay.Factories
             deerContext.GameObject = InstantiatePrefab(_prefab, position, rotation, parent);
             
             var raycastStripPresenter = deerContext.GameObject.GetComponent<RaycastStripPresenter>();
-            deerContext.RaycastStripController = new RaycastStripController(raycastStripPresenter, _eventBus);
+            deerContext.RaycastStripController = new RaycastStripController(raycastStripPresenter, () => _eventBus.Publish(new CutTwice.Core.EventBus.GameOverEvent()));
             
             return UniTask.FromResult((Context)deerContext);
         }

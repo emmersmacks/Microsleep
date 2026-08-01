@@ -56,6 +56,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e605a448f489aee4c9f52e293656a96a
+    m_Address: Location/SignalTower
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eda3526d82fb89f4ca33f46fc679c01d
     m_Address: AppBootstrap
     m_ReadOnly: 0

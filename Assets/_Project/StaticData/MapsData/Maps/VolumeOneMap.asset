@@ -20,18 +20,27 @@ MonoBehaviour:
   - rid: 1325954232302174417
   - rid: 1325954232302174419
   - rid: 1325954499599138906
-  - rid: 1325954515344818271
+  - rid: 1668524329096446049
+  - rid: 1668524329096446051
   Connections:
-  - NodeAId: 32a39e0d481749039a8b3cdc74f32cc2
-    NodeBId: a2f97a92beb742eda3d9975479a2c854
-    Direction: 0
-    DisplayName: 
   - NodeAId: a2f97a92beb742eda3d9975479a2c854
     NodeBId: a289309a7ad84875b0b2297e7d227de7
     Direction: 0
     DisplayName: 
   - NodeAId: 32a39e0d481749039a8b3cdc74f32cc2
-    NodeBId: 709e7cd0cf604c7a97b928070dc1c7e3
+    NodeBId: 455e0d93748240fb8409f0c6037cdd8e
+    Direction: 0
+    DisplayName: 
+  - NodeAId: 455e0d93748240fb8409f0c6037cdd8e
+    NodeBId: 1a39ecb2065a484198ae9c739475e7a7
+    Direction: 0
+    DisplayName: 
+  - NodeAId: 455e0d93748240fb8409f0c6037cdd8e
+    NodeBId: a2f97a92beb742eda3d9975479a2c854
+    Direction: 0
+    DisplayName: 
+  - NodeAId: 1a39ecb2065a484198ae9c739475e7a7
+    NodeBId: a2f97a92beb742eda3d9975479a2c854
     Direction: 0
     DisplayName: 
   RootInstanceId: 32a39e0d481749039a8b3cdc74f32cc2
@@ -59,10 +68,17 @@ MonoBehaviour:
         MaxPassCount: 1
         Preset: {fileID: 11400000, guid: 28ecc5815183a1f4e8077fb7282c2321, type: 2}
         ItemIdsForSale: []
-    - rid: 1325954515344818271
+    - rid: 1668524329096446049
       type: {class: LocationNode, ns: CutTwice.Gameplay.Runtime.Map.Nodes, asm: Assembly-CSharp}
       data:
-        InstanceId: 709e7cd0cf604c7a97b928070dc1c7e3
+        InstanceId: 1a39ecb2065a484198ae9c739475e7a7
         MaxPassCount: 1
-        Preset: {fileID: 11400000, guid: 28ecc5815183a1f4e8077fb7282c2321, type: 2}
+        Preset: {fileID: 11400000, guid: 203b7bfe8718a644c952a9a60a65208a, type: 2}
         ItemIdsForSale: []
+    - rid: 1668524329096446051
+      type: {class: CrossroadNode, ns: CutTwice.Gameplay.Runtime.Map.Nodes, asm: Assembly-CSharp}
+      data:
+        InstanceId: 455e0d93748240fb8409f0c6037cdd8e
+        MaxPassCount: 1
+        Preset: {fileID: 11400000, guid: 4efcbdeb7f76d3c4d8279421e5d3a3b5, type: 2}
+        Biome: 0

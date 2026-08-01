@@ -31,7 +31,7 @@ namespace CutTwice.Gameplay.Factories
             trafficContext.ObjectMoverController = new ObjectMoverController(objectMoverPresenter);
             
             var raycastStripPresenter = trafficContext.GameObject.GetComponent<RaycastStripPresenter>();
-            trafficContext.RaycastStripController = new RaycastStripController(raycastStripPresenter, _eventBus);
+            trafficContext.RaycastStripController = new RaycastStripController(raycastStripPresenter, () => _eventBus.Publish(new Core.EventBus.GameOverEvent()));
             
             return UniTask.FromResult((Context)trafficContext);
         }

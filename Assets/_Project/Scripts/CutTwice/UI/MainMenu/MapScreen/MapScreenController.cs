@@ -48,10 +48,14 @@ namespace CutTwice.UI.MainMenu.MapScreen
                 _connectionViewsByConnection[connection] = connectionView;
             }
 
+            var visitedIds = new HashSet<string>(state.History.Select(n => n.InstanceId));
+
             foreach (var node in visible.Nodes)
             {
                 var nodeView = UnityEngine.Object.Instantiate(View.NodeViewPrefab, View.ContentRoot);
                 nodeView.Bind(node);
+                var isCompleted = node.InstanceId != state.CurrentNode.InstanceId && visitedIds.Contains(node.InstanceId);
+                nodeView.SetCompleted(isCompleted);
 
                 if (positions.TryGetValue(node.InstanceId, out var position))
                 {

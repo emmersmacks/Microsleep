@@ -14,6 +14,7 @@ namespace CutTwice.UI.MainMenu.MapScreen
         public TMP_Text NameLabel;
         public Button Button;
         public GameObject HighlightImage;
+        public GameObject CompletedImage;
         public GameObject CrossroadMarker;
         public GameObject LocationMarker;
 
@@ -57,6 +58,7 @@ namespace CutTwice.UI.MainMenu.MapScreen
             }
 
             SetHighlighted(false);
+            SetCompleted(false);
         }
 
         public void SetHighlighted(bool isHighlighted)
@@ -64,6 +66,14 @@ namespace CutTwice.UI.MainMenu.MapScreen
             if (HighlightImage != null)
             {
                 HighlightImage.SetActive(isHighlighted);
+            }
+        }
+
+        public void SetCompleted(bool isCompleted)
+        {
+            if (CompletedImage != null)
+            {
+                CompletedImage.SetActive(isCompleted);
             }
         }
     }

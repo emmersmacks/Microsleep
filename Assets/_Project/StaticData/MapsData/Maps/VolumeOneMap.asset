@@ -22,6 +22,8 @@ MonoBehaviour:
   - rid: 1325954499599138906
   - rid: 1668524329096446049
   - rid: 1668524329096446051
+  - rid: 1668524423070875740
+  - rid: 1668524423070875741
   Connections:
   - NodeAId: a2f97a92beb742eda3d9975479a2c854
     NodeBId: a289309a7ad84875b0b2297e7d227de7
@@ -32,15 +34,31 @@ MonoBehaviour:
     Direction: 0
     DisplayName: 
   - NodeAId: 455e0d93748240fb8409f0c6037cdd8e
+    NodeBId: 3a7850c0fe82408cbb45a7f5f8d22b60
+    Direction: 0
+    DisplayName: 
+  - NodeAId: 3a7850c0fe82408cbb45a7f5f8d22b60
     NodeBId: 1a39ecb2065a484198ae9c739475e7a7
     Direction: 0
     DisplayName: 
   - NodeAId: 455e0d93748240fb8409f0c6037cdd8e
+    NodeBId: f6590c3f17604b908b6df8611679a81c
+    Direction: 0
+    DisplayName: 
+  - NodeAId: f6590c3f17604b908b6df8611679a81c
     NodeBId: a2f97a92beb742eda3d9975479a2c854
     Direction: 0
     DisplayName: 
-  - NodeAId: 1a39ecb2065a484198ae9c739475e7a7
+  - NodeAId: 3a7850c0fe82408cbb45a7f5f8d22b60
     NodeBId: a2f97a92beb742eda3d9975479a2c854
+    Direction: 0
+    DisplayName: 
+  - NodeAId: f6590c3f17604b908b6df8611679a81c
+    NodeBId: 1a39ecb2065a484198ae9c739475e7a7
+    Direction: 0
+    DisplayName: 
+  - NodeAId: 1a39ecb2065a484198ae9c739475e7a7
+    NodeBId: a289309a7ad84875b0b2297e7d227de7
     Direction: 0
     DisplayName: 
   RootInstanceId: 32a39e0d481749039a8b3cdc74f32cc2
@@ -79,6 +97,20 @@ MonoBehaviour:
       type: {class: CrossroadNode, ns: CutTwice.Gameplay.Runtime.Map.Nodes, asm: Assembly-CSharp}
       data:
         InstanceId: 455e0d93748240fb8409f0c6037cdd8e
+        MaxPassCount: 1
+        Preset: {fileID: 11400000, guid: 4efcbdeb7f76d3c4d8279421e5d3a3b5, type: 2}
+        Biome: 0
+    - rid: 1668524423070875740
+      type: {class: CrossroadNode, ns: CutTwice.Gameplay.Runtime.Map.Nodes, asm: Assembly-CSharp}
+      data:
+        InstanceId: 3a7850c0fe82408cbb45a7f5f8d22b60
+        MaxPassCount: 1
+        Preset: {fileID: 11400000, guid: 4efcbdeb7f76d3c4d8279421e5d3a3b5, type: 2}
+        Biome: 0
+    - rid: 1668524423070875741
+      type: {class: CrossroadNode, ns: CutTwice.Gameplay.Runtime.Map.Nodes, asm: Assembly-CSharp}
+      data:
+        InstanceId: f6590c3f17604b908b6df8611679a81c
         MaxPassCount: 1
         Preset: {fileID: 11400000, guid: 4efcbdeb7f76d3c4d8279421e5d3a3b5, type: 2}
         Biome: 0

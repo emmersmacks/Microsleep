@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 2704353486476757660}
   - component: {fileID: 4738003303080144591}
   m_Layer: 0
-  m_Name: Crossroad
+  m_Name: CrossroadModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

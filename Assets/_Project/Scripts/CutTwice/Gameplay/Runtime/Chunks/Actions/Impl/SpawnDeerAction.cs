@@ -60,30 +60,30 @@ namespace CutTwice.Gameplay.Runtime.Chunks.Actions
         }
 
         private DeerContext _instance;
-        private Transform _segment;
+        private RoadSegmentPresenter _segment;
 
-        private void SpawnObject(Transform segment)
+        private void SpawnObject(RoadSegmentPresenter segment)
         {
             _infiniteRoadController.OnSegmentSpawned.RemoveListener(SpawnObject);
             SpawnObjectAsync(segment, _cancellationToken).Forget();
         }
 
-        private async UniTask SpawnObjectAsync(Transform segment, CancellationToken ct)
+        private async UniTask SpawnObjectAsync(RoadSegmentPresenter segment, CancellationToken ct)
         {
             _segment = segment;
             _instance = await _gameObjectFactory.Create(new Vector3(_parameters.Position.X, _parameters.Position.Y, _parameters.Position.Z), _prefab.transform.rotation) as DeerContext;
             await _lifecycleManager.RuntimeRegisterAsync(_instance.RaycastStripController, ct);
-            _instance.GameObject.transform.SetParent(_segment);
-            
-            _infiniteRoadController.OnSegmentSpawned.AddListener(DespawnObject);
+            _instance.GameObject.transform.SetParent(_segment.transform);
+
+            _infiniteRoadController.OnSegmentDespawning.AddListener(DespawnObject);
         }
 
-        private void DespawnObject(Transform segment)
+        private void DespawnObject(RoadSegmentPresenter segment)
         {
             if (segment == _segment)
             {
-                _infiniteRoadController.OnSegmentSpawned.RemoveListener(DespawnObject);
-                
+                _infiniteRoadController.OnSegmentDespawning.RemoveListener(DespawnObject);
+
                 _lifecycleManager.Unregister(_instance.RaycastStripController);
                 Object.Destroy(_instance.GameObject);
                 _instance = null;

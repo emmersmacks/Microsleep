@@ -1,8 +1,4 @@
-using CutTwice.Core.EventBus;
 using CutTwice.Core.Lifecycle;
-using CutTwice.Gameplay.Runtime.Map;
-using CutTwice.Gameplay.Runtime.Map.Nodes;
-using CutTwice.Gameplay.Runtime.Player.Components;
 using CutTwice.Gameplay.Runtime.Road.Components;
 using UnityEngine;
 
@@ -10,65 +6,40 @@ namespace CutTwice.Gameplay.Modes
 {
     public class DistanceTracker : ITickable
     {
-        private readonly InfiniteRoadController _roadController;
         private readonly SessionTimer _sessionTimer;
-        private readonly GameModeContext _gameModeContext;
-        private readonly IEventBus _eventBus;
-        private readonly MapProgressService _mapProgressService;
-        private readonly PlayerCarPresenter _playerCarPresenter;
+        private readonly InfiniteRoadPresenter _infiniteRoadPresenter;
 
-        private bool _goalReached;
+        private bool _paused;
 
         public float DistanceMeters { get; private set; }
 
-        public DistanceTracker(InfiniteRoadController roadController, SessionTimer sessionTimer, GameModeContext gameModeContext, IEventBus eventBus,
-            MapProgressService mapProgressService, PlayerCarPresenter playerCarPresenter)
+        public DistanceTracker(SessionTimer sessionTimer, InfiniteRoadPresenter infiniteRoadPresenter)
         {
-            _roadController = roadController;
             _sessionTimer = sessionTimer;
-            _gameModeContext = gameModeContext;
-            _eventBus = eventBus;
-            _mapProgressService = mapProgressService;
-            _playerCarPresenter = playerCarPresenter;
+            _infiniteRoadPresenter = infiniteRoadPresenter;
         }
 
         public void Tick()
         {
-            if (!_sessionTimer.IsRunning || _goalReached)
+            if (!_sessionTimer.IsRunning || _paused)
                 return;
 
-            DistanceMeters += _roadController.MovementSpeed * Time.deltaTime;
-
-            if (_gameModeContext.CurrentMode is DistanceModeConfig distanceMode &&
-                DistanceMeters >= distanceMode.TargetMeters)
-            {
-                _goalReached = true;
-
-                var nextTarget = _mapProgressService.IsMapActive ? _mapProgressService.GetNextTargetLocation() : null;
-                if (nextTarget is CrossroadNode)
-                {
-                    _roadController.SpawnCrossroadFork(OnCrossroadForkResolved);
-                }
-                else
-                {
-                    _eventBus.Publish(new RunCompletedEvent());
-                }
-            }
+            DistanceMeters += _infiniteRoadPresenter.moveSpeed * Time.deltaTime;
         }
 
-        private void OnCrossroadForkResolved()
+        public void Pause()
         {
-            bool isLeft = _playerCarPresenter.IsOnLeftSide;
+            _paused = true;
+        }
 
-            _mapProgressService.MarkLocationCompleted();
-            var exits = _mapProgressService.GetRuntimeState().AvailableExits;
-            var chosen = isLeft ? exits[0] : exits[1];
+        public void Resume()
+        {
+            _paused = false;
+        }
 
-            _mapProgressService.ClearRoute();
-            _mapProgressService.AddTargetLocation(chosen.Target);
-
+        public void ResetDistance()
+        {
             DistanceMeters = 0f;
-            _goalReached = false;
         }
     }
 }

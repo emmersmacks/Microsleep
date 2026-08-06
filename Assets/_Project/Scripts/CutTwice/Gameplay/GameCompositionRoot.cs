@@ -59,9 +59,14 @@ namespace CutTwice.Gameplay
             var steeringInterferencePresenter = GameSceneReferences.Player.GetComponent<SteeringInterferencePresenter>();
             var steeringInterferenceController = lifecycleManager.Register(new SteeringInterferenceController(steeringInterferencePresenter, playerSleepController));
             
+            builder.RegisterSingleton<InfiniteRoadPresenter>(GameSceneReferences.InfiniteRoadPresenter);
+
             var infiniteRoadController = lifecycleManager.Register(new InfiniteRoadController(GameSceneReferences.InfiniteRoadPresenter, lifecycleManager));
             builder.RegisterSingleton<InfiniteRoadController>(infiniteRoadController);
-            
+
+            var infiniteRoadMotionController = lifecycleManager.Register(new InfiniteRoadMotionController(infiniteRoadController));
+            builder.RegisterSingleton<InfiniteRoadMotionController>(infiniteRoadMotionController);
+
             var rotateBackviewMirrorController = lifecycleManager.Register(new RotateMirrorController(GameSceneReferences.RotateBackviewMirrorPresenter, playerInputController));
             var backviewReflectionObjectController = lifecycleManager.Register(new ReflectionObjectController(GameSceneReferences.BackviewReflectionObjectPresenter, rotateBackviewMirrorController));
             var backviewMirrorHazardController = lifecycleManager.Register(new BackviewMirrorHazardController(GameSceneReferences.BackviewMirrorHazardPresenter, backviewReflectionObjectController, rotateBackviewMirrorController, eventBus));
@@ -112,6 +117,7 @@ namespace CutTwice.Gameplay
             // Session
             builder.RegisterSingletonWithLifetime<SessionTimer>();
             builder.RegisterSingletonWithLifetime<DistanceTracker>();
+            builder.RegisterSingletonWithLifetime<CrossroadRouteController>();
         }
 
         private void ComposeUIModule(IContainer builder)

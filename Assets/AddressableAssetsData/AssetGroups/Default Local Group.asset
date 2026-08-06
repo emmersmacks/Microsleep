@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: d7ebb34cafbc5d94da10ee92f91495f6
   m_SerializeEntries:
+  - m_GUID: 0e49d51e77531df4c925341b6eaa3dc8
+    m_Address: Road/TwoWayCrossroad
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 102365c19eda09445a1e02ca062f86a6
     m_Address: Chunk/Hard
     m_ReadOnly: 0
@@ -22,6 +27,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a2a377b226b42e9bdfc07562c1e2051
     m_Address: Chunk/Easy
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46cc2d17f48f7154a89dd20e3092fe58
+    m_Address: Road/RoadSegment
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
